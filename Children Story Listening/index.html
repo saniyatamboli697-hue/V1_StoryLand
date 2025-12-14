@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added for mobile friendliness -->
     <title>Kids Login Page</title>
     <link rel="icon" type="image/png" href="favicon.jpg">
     <link rel="stylesheet" href="style.css">
@@ -10,26 +11,25 @@
 
 <body>
 
-
     <div class="login-container">
-        <img src="favicon.jpg" class="mascot">
+        <img src="favicon.jpg" alt="Mascot" class="mascot"> <!-- Added alt for accessibility -->
         <h1>Welcome Back 👋</h1>
         <p class="subtitle">Ready to play, learn, and explore? 🎮📖🔍</p>
 
         <form onsubmit="login(event)">
             <label>Email 📧</label>
-            <input type="email" placeholder="Enter your email">
+            <input type="email" id="email" placeholder="Enter your email" required>
 
             <label>Password 🔒</label>
-            <input type="password" placeholder="Enter your password">
+            <input type="password" id="password" placeholder="Enter your password" required>
 
-            <button onclick="login()" class="login-btn">Login</button>
+            <button type="submit" class="login-btn">Login</button>
         </form>
 
         <div class="divider">OR</div>
 
         <button class="google-btn" type="button" onclick="loginGoogle()">
-            <img src="google-g-logo.jpg" alt="" class="G-logo"> Login with Google
+            <img src="google-g-logo.jpg" alt="Google Logo" class="G-logo"> Login with Google
         </button>
 
         <p class="footer-text">
@@ -38,8 +38,8 @@
 
         <p id="log-msg"></p>
     </div>
-    <script src="Back.js"></script>
 
+    <script src="Back.js"></script>
 </body>
 
 </html>
