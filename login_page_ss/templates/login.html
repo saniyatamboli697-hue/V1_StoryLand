@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added for mobile friendliness -->
+    <title>Kids Login Page</title>
+    <link rel="icon" type="image/png" href="images/favicon.jpg">
+
+   <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/login.css') }}">
+
+</head>
+
+<body>
+    <div class="page">
+        <img src="{{ url_for('static', filename='images/bear_2.png') }}" alt="Bear" class="bear">
+        <div class="login-container">
+           <img src="{{ url_for('static', filename='images/maasha.png') }}" alt="Masha" class="masha">
+            <h1 class="st">StoryLand</h1>
+            <h1 class="wl">Welcome Back 👋</h1>
+            <p class="subtitle">Ready to play, learn, and explore? 🎮📖🔍</p>
+
+            <form onsubmit="login(event)">
+                <label>Username </label>
+                <input type="text" id="tx" placeholder="Enter your Username">
+
+                <label>Email 📧</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+
+                <label>Password 🔒</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+                <div class="forgot-password">
+                    <a href="forgot-password.html">Forgot Password? 🔑</a> <!-- Or # if no page yet -->
+                </div>
+                <button type="submit" class="login-btn">Login</button>
+            </form>
+
+            <div class="divider">OR</div>
+
+            <button type="button" class="login-btn google-custom-btn" id="custom-google-btn">
+                <img src="https://cdn.freebiesupply.com/logos/thumbs/2x/google-icon-logo.png" alt="Google"
+                    class="google-icon">
+                Sign in with Google
+            </button>
+
+            <p class="login-link"> Don’t have an account? <a href="{{ url_for('register') }}">Register</a> </p>
+
+            <p id="log-msg"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+
+</html>
