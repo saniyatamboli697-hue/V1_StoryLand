@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JPG Viewer</title>
+  <style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+    }
+    img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+   }
+    img:hover {
+        transform: scale(1.05);
+        transition: 0.3s ease;
+    }
+
+    #exposure-therapy {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 15px;
+   }
+
+   /* .img-box {
+  height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #eee;
+  
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;   /* 🔥 MAIN FIX */
+  /* transition: transform 0.3s ease;
+} */ 
+
+/* .img-box:hover img {
+  transform: scale(1.05);
+} */
+
+   #lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  background: black;
+}
+
+
+.nav {
+  position: absolute;
+  top: 50%;
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+<h2>Exposure Therapy</h2>
+<div id="exposure-therapy"></div>
+
+<div id="lightbox">
+  <span class="close">×</span>
+  <span class="nav prev">❮</span>
+  <img id="lightbox-img">
+  <span class="nav next">❯</span>
+</div>
+
+<script>
+  const storageAccount = "iacterraformst";
+  const containerName = "photogallery";
+  const baseUrl = `https://${storageAccount}.blob.core.windows.net/${containerName}`;
+
+  let i = 1;
+  const maxImages = 1000;
+  const images = [];
+  let currentIndex = 0;
+
+  function loadNext() {
+    if (i > maxImages) return;
+
+    const img = new Image();
+    img.src = `${baseUrl}/${i}.jpeg`;
+
+    img.onload = () => {
+      images.push(img.src);
+
+      img.onclick = () => openLightbox(images.length - 1);
+      document.getElementById("exposure-therapy").appendChild(img);
+
+      i++;
+      loadNext();
+    };
+  }
+
+  function openLightbox(index) {
+    currentIndex = index;
+    document.getElementById("lightbox-img").src = images[currentIndex];
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+
+  function nextImg() {
+    currentIndex = (currentIndex + 1) % images.length;
+    openLightbox(currentIndex);
+  }
+
+  function prevImg() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    openLightbox(currentIndex);
+  }
+
+  document.querySelector(".close").onclick = closeLightbox;
+  document.querySelector(".next").onclick = nextImg;
+  document.querySelector(".prev").onclick = prevImg;
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") nextImg();
+    if (e.key === "ArrowLeft") prevImg();
+  });
+
+  loadNext();
+</script>
+
+
+
+</body>
+</html>

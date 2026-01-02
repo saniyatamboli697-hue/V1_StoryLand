@@ -1,0 +1,4 @@
+function downloadCoverLetter() {
+  window.print();
+}
+
