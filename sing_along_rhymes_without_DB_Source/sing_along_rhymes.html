@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing Along Rhymes 🌙</title>
+    <link rel="shortcut icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/x-icon">
+    <link rel="stylesheet" href="sing along rhymes.css">
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css
+    ">
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+                <ul>
+                    <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                    <!-- <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li> -->
+                    <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                    <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                    <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                    <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                    <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (original gradient kept!) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Sing Along Rhymes! 🌙</h1>
+            <p class="fade-in">Snuggle up, tap play, and sing under the stars with your favorite lullabies! ✨</p>
+
+            <button class="cta-btn rotate-hover">Start Singing 🎤</button>
+        </div>
+        <div class="floating-particles"></div>
+    </section>
+
+    <!-- Starry Rhymes Gallery -->
+    <!-- Starry Rhymes Gallery -->
+    <section class="rhymes-section">
+        <h1>🌟 Sing Along Rhymes 🌟</h1>
+        <p class="subtitle">Tap play and sing with your favorite rhymes!</p>
+
+        <div class="rhymes-container">
+            <!-- Existing ones (kept exactly) -->
+            <!-- Twinkle Twinkle -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://i.ytimg.com/vi/Yq3bIsTYxoE/maxresdefault.jpg" alt="Twinkle Twinkle starry night sky"
+                    class="thumbnail">
+                <h2>Twinkle Twinkle Little Star ✨</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress1"></div>
+                </div>
+                <audio id="audio1" ontimeupdate="updateProgress('audio1','progress1')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-8-twinkle-twinkle-little-star.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio1',this)">▶ Play</button>
+            </div>
+
+            <!-- Baa Baa Black Sheep -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://i.scdn.co/image/ab67616d00001e02e7e8a78f6cf3e68e355a36a4"
+                    alt="Cute black sheep with wool bags" class="thumbnail">
+                <h2>Baa Baa Black Sheep 🐑</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress2"></div>
+                </div>
+                <audio id="audio2" ontimeupdate="updateProgress('audio2','progress2')">
+                    <source src="https://babymozart.org/wp-content/uploads/2017/02/BaaBaaBlackSheep.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio2',this)">▶ Play</button>
+            </div>
+
+            <!-- Row Row Row Your Boat -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://i.ytimg.com/vi/fDR_pRHYMGA/maxresdefault.jpg" alt="Friends rowing boat adventure"
+                    class="thumbnail">
+                <h2>Row Row Row Your Boat 🚣</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress5"></div>
+                </div>
+                <audio id="audio5" ontimeupdate="updateProgress('audio5','progress5')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-5-row-row-row-your-boat.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio5',this)">▶ Play</button>
+            </div>
+
+            <!-- ABC Song -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://i.ytimg.com/vi/ccEpTTZW34g/maxresdefault.jpg" alt="Dancing alphabet letters"
+                    class="thumbnail">
+                <h2>ABC Song 🔤</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress6"></div>
+                </div>
+                <audio id="audio6" ontimeupdate="updateProgress('audio6','progress6')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-1-abcd-Song.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio6',this)">▶ Play</button>
+            </div>
+
+            <!-- I'm a Little Teapot -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://cdn.firstcry.com/education/2022/08/02211442/Im-a-little-teapot-nursery-rhyme.jpg"
+                    alt="Cute teapot character tipping" class="thumbnail">
+                <h2>I’m a Little Tea Pot 🫖</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress7"></div>
+                </div>
+                <audio id="audio7" ontimeupdate="updateProgress('audio7','progress7')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-2-i-am-a-little-teapot.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio7',this)">▶ Play</button>
+            </div>
+
+            <!-- Pat-a-Cake -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://www.shutterstock.com/shutterstock/photos/1293501067/display_1500/stock-vector-nursery-rhymes-pat-a-cake-for-kids-learning-school-education-vector-illustration-1293501067.jpg"
+                    alt="Baby clapping pat-a-cake" class="thumbnail">
+                <h2>Pat-a-Cake 👩‍🍳</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress8"></div>
+                </div>
+                <audio id="audio8" ontimeupdate="updateProgress('audio8','progress8')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-3-pat-a-cake.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio8',this)">▶ Play</button>
+            </div>
+
+            <!-- Are You Sleeping -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://i.scdn.co/image/ab67616d0000b2736ad829f3e50a6c364c9e5bc1"
+                    alt="Brother John sleeping sweetly" class="thumbnail">
+                <h2>Are You Sleeping? 😴</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress9"></div>
+                </div>
+                <audio id="audio9" ontimeupdate="updateProgress('audio9','progress9')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-4-are-you-sleeping.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio9',this)">▶ Play</button>
+            </div>
+
+
+            <!-- NEW: Old MacDonald Had a Farm 🐄 -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://m.media-amazon.com/images/I/81+zHrXaEZL._AC_UF1000,1000_QL80_.jpg"
+                    alt="Farmer with happy farm animals" class="thumbnail">
+                <h2>Old MacDonald Had a Farm 🌾</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress11"></div>
+                </div>
+                <audio id="audio11" ontimeupdate="updateProgress('audio11','progress11')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-19-old-macdonald-had-a-farm.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio11',this)">▶ Play</button>
+            </div>
+
+            <!-- NEW: Wheels on the Bus 🚌 -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://i.ytimg.com/vi/K31MZafuzfs/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDy70PEPVc1Wrya9zVB2HLPy07Wtg"
+                    alt="Yellow school bus with happy kids" class="thumbnail">
+                <h2>Wheels on the Bus 🚌</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress12"></div>
+                </div>
+                <audio id="audio12" ontimeupdate="updateProgress('audio12','progress12')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-18-wheels-on-the-bus.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio12',this)">▶ Play</button>
+            </div>
+
+            <!-- NEW: If You're Happy and You Know It 👏 -->
+            <div class="rhyme-card">
+                <div class="now-playing">Now Playing 🌟</div>
+                <img src="https://i.ytimg.com/vi/Q4q9IVfNWC0/maxresdefault.jpg" alt="Happy kids clapping and stomping"
+                    class="thumbnail">
+                <h2>If You're Happy and You Know It 👏</h2>
+                <div class="progress-container">
+                    <div class="progress" id="progress13"></div>
+                </div>
+                <audio id="audio13" ontimeupdate="updateProgress('audio13','progress13')">
+                    <source
+                        src="https://lib.sjp.ac.lk/englishforfun/wp-content/uploads/nurseryrhymes-set1/nrt-17-if-youre-happy-and-you-know-it.mp3"
+                        type="audio/mpeg">
+                </audio>
+                <button class="play-btn" onclick="togglePlay('audio13',this)">▶ Play</button>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+
+    <!-- Bubbles (twinkling stars now!) -->
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <!-- JS for Audible Magic + Progress -->
+    <script>
+        function togglePlay(id, btn) {
+            const audio = document.getElementById(id);
+            const allAudios = document.querySelectorAll('audio');
+            const allBtns = document.querySelectorAll('.play-btn');
+            const allRibbons = document.querySelectorAll('.now-playing');
+
+            if (audio.paused) {
+                allAudios.forEach(a => a.pause());
+                allBtns.forEach(b => { b.textContent = '▶ Play'; b.classList.remove('playing'); });
+                allRibbons.forEach(r => r.style.display = 'none');
+
+                audio.play();
+                btn.textContent = '⏸ Pause';
+                btn.classList.add('playing');
+                btn.closest('.rhyme-card').querySelector('.now-playing').style.display = 'block';
+            } else {
+                audio.pause();
+                btn.textContent = '▶ Play';
+                btn.classList.remove('playing');
+                btn.closest('.rhyme-card').querySelector('.now-playing').style.display = 'none';
+            }
+        }
+
+        function updateProgress(id, progressId) {
+            const audio = document.getElementById(id);
+            const progress = document.getElementById(progressId);
+            if (audio.duration) {
+                progress.style.width = (audio.currentTime / audio.duration) * 100 + '%';
+            }
+        }
+
+    </script>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+</body>
+
+</html>

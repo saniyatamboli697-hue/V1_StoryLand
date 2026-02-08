@@ -1,0 +1,227 @@
+/* Rhymes Section – starry music overlay for magic! */
+.rhymes-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.rhymes-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://thumbs.dreamstime.com/b/twinkle-stars-music-notes-18572832.jpg') center/cover no-repeat fixed;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.rhymes-section h1 {
+    font-family: 'Princess Sofia', cursive;
+    font-size: 3rem;
+    background: linear-gradient(45deg, #ffd86b, #ff9de2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+    color: #ddd;
+    position: relative;
+    z-index: 1;
+}
+
+.rhymes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.rhyme-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 1.5rem;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.rhyme-card:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 50px rgba(255, 157, 226, 0.4);
+}
+
+.thumbnail {
+    width: 100%;
+    border-radius: 20px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.rhyme-card h2 {
+    font-family: 'Princess Sofia', cursive;
+    font-size: 1.8rem;
+    margin: 1rem 0;
+    color: #ff9de2;
+}
+
+/* Progress & Play Glow */
+.progress-container {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 1rem 0;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff9de2, #8ec5ff);
+    transition: width 0.1s linear;
+}
+
+.play-btn {
+    padding: 12px 40px;
+    background: #ff9de2;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    min-height: 48px;
+    /* Touch-friendly */
+}
+
+.play-btn:hover {
+    background: #8ec5ff;
+    transform: scale(1.1);
+}
+
+.play-btn.playing {
+    background: #ffd86b;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 216, 107, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(255, 216, 107, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 216, 107, 0);
+    }
+}
+
+/* Now Playing Shooting Star Ribbon */
+.now-playing {
+    position: absolute;
+    top: 15px;
+    left: -50px;
+    background: #ffd86b;
+    color: #000;
+    padding: 8px 60px;
+    font-weight: bold;
+    transform: rotate(-45deg);
+    display: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: shine 2s infinite;
+    z-index: 2;
+}
+
+@keyframes shine {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 4px 30px rgba(255, 216, 107, 0.8);
+    }
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE ADJUSTMENTS FOR RHYMES SECTION
+---------------------------------------------------- */
+@media (max-width: 1024px) {
+    .rhymes-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .rhymes-container {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .rhymes-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .rhyme-card {
+        padding: 1.2rem;
+    }
+
+    .thumbnail {
+        height: 180px;
+    }
+
+    .rhyme-card h2 {
+        font-size: 1.6rem;
+    }
+
+    .play-btn {
+        padding: 10px 32px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .rhymes-section {
+        padding: 2rem 1rem;
+    }
+
+    .rhymes-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .rhymes-container {
+        grid-template-columns: 1fr;
+        /* Force single column on very small phones */
+        gap: 1.5rem;
+    }
+
+    .thumbnail {
+        height: 160px;
+    }
+
+    .play-btn {
+        width: 100%;
+        padding: 14px;
+    }
+}
