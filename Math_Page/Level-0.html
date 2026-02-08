@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryLand - Abacus Lesson Level 0</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg">
+    <link rel="stylesheet" href="Math_Page_CSS.css">
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css">
+
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+                <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Welcome to Abacus Lessons!</h1>
+            <p class="fade-in">Learn Abacus,Play with numbers and more!</p>
+
+            <div class="floating-particles"></div>
+            <a href="#video-section"><button class="cta-btn rotate-hover">Start Your Learning ✨</button></a>
+        </div>
+    </section>
+
+
+
+
+    <!-- Video Lesson Gallery! -->
+    <section class="video-gallery" id="Fun">
+        <h2 class="bounce-in">Level 0 </h2>
+        <p class="T"> "What is Abacus ?"....</p>
+
+        <div class="video-grid">
+
+            <!-- lesson 1 Introduction  -->
+            <div class="video-card" data-video="./Lessons/intro_to_abacus.mp4"
+                onclick="markLessonWatched('introduction');">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/intro_to_abacus.png"
+                    alt="intro image" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Introduction </h3>
+                <p>Know what is Abacus...</p>
+            </div>
+
+            <!-- Lesson 2 Types of slates -->
+            <div class="video-card" data-video="./Lessons/Types of Abacus.mp4" onclick="markLessonWatched('tools');">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus-slate.jpg"
+                    alt="Types of slate image" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Abacus Tools</h3>
+                <p>Types of Abacus Tools...</p>
+            </div>
+
+            <!-- Lesson 3 Knowing_Slate-->
+            <div class="video-card" data-video="./Lessons/Knowing_Slate.mp4"
+                onclick="markLessonWatched('knowing_slate');">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/L1a.png" alt="slate image"
+                    class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Bead Slate</h3>
+                <p>Know the Abacus Slate...</p>
+            </div>
+
+            <!-- Lesson 3 Proper pesture-->
+            <div class="video-card" data-video="./Lessons/Proper_posture.mp4">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/s-m-removebg-preview.png"
+                    alt="Proper Posture image" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Proper posture</h3>
+                <p>Maintaining a good posture while using abacus... </p>
+            </div>
+
+            <!-- Lesson 4 Resetting the slate -->
+            <div class="video-card" data-video="./Lessons/Resetting.mp4">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/rotate.gif" alt="Reset image"
+                    class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Clearing</h3>
+                <p>Reset the abacus to its initial state... </p>
+            </div>
+            <!-- Lesson 5 Numbering on the slate -->
+            <div class="video-card" data-video=".\Lessons/Numbering.mp4">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus.png"
+                    alt="numbering image" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Numbering</h3>
+                <p>Reading numbers on the abacus tool... </p>
+            </div>
+
+
+
+            <!-- Add more Lessons here! -->
+        </div>
+        <button class="generate-btn cta-btn rotate-hover"
+            onclick="loadRandomPremadeQuiz(); setTimeout(markQuizCompleted, 2000);">
+            🎲 Play Fun Quiz ✨
+        </button>
+        <!-- <button onclick="testPaths()">🛠️ Test Paths</button>
+
+        <script>
+            function testPaths() {
+                const path = '../Quiz_Folder/premade/quiz1_intro.json';
+                fetch(path)
+                    .then(r => alert(r.ok ? '✅ Path WORKS!' : '❌ Path FAILED: ' + r.status))
+                    .catch(() => alert('❌ Network error - wrong path!'));
+            }
+        </script> -->
+    </section>
+
+    <!-- Single Reusable Modal -->
+    <div id="videoModal">
+        <div class="modal-content">
+            <span class="close-btn">✖</span>
+            <video id="storyVideo" controls autoplay playsinline preload="auto">
+                <source src="" type="video/mp4">
+                Whoosh! Your browser needs adventure fuel to play videos 🏕️
+            </video>
+        </div>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+
+
+
+
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+    <script src="quiz-code_json.js"></script>
+    <script src="../Public_Stories/Stories.js"></script>
+    <script>
+        // Force consistent guest profile for kids (no email needed)
+        if (!localStorage.getItem('quizUserEmail')) {
+            localStorage.setItem('quizUserEmail', 'guest');
+        }
+    </script>
+
+
+    <!-- Add this somewhere visible on your page (e.g., above the quiz button) -->
+    <div id="levelProgress" style="text-align:center; margin:30px 0; font-size:1.4em; color:#667eea;">
+        Loading progress...
+    </div>
+
+</body>
+
+</html>
