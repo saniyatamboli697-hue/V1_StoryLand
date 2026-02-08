@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Story Library</title>
+  <link rel="stylesheet" href="Own_Lib_CSS.css" />
+  <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fleur+De+Leah&family=Princess+Sofia&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">StoryLand 🏰</div>
+    <nav>
+      <ul>
+
+        <ul>
+          <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+          <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+          <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+          <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+          <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+          <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+          <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <!-- Floating Bubbles -->
+  <div class="bubbles">
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+
+  <!-- Title -->
+  <h1 class="title">✨ Story Library ✨</h1>
+
+  <!-- Bookshelf -->
+  <div class="bookshelf">
+    <div class="shelf-wrapper">
+      <div class="shelf">
+        <div id="bookList" class="scroll-area"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Generate Story CTA -->
+  <!-- <section class="generate-story" id="generate"> -->
+
+  <!-- LEFT IMAGE -->
+  <!-- <img src="../images/magic-book.png" alt="Magic Book" class="story-img left-img"> -->
+
+  <!-- CENTER CONTENT (YOUR CODE) -->
+  <!-- <div class="story-center">
+    <h2 class="title_1">Create Your Own Story!</h2>
+
+    <form class="prompt-form">
+    <input type="text" placeholder="Prompt: A brave dragon who..." class="glow-focus">
+    <button type="submit" class="cta-btn rotate-hover">
+        Generate Magic! 🪄
+    </button>
+</form>
+
+
+    <p class="fade-in">Powered by AI – Your story appears instantly!</p>
+  </div> -->
+
+  <!-- RIGHT IMAGE -->
+  <!-- <img src="../images/witch.png" alt="Wizard" class="story-img right-img">
+
+</section> -->
+
+
+
+  <!-- Story Reader (Hidden until a book is clicked) -->
+  <div id="storySection" class="story-reader">
+    <button id="backBtn" class="back-button">← Back to Library</button>
+    <h2 id="storyTitle"></h2>
+    <img id="pageImage" alt="Story illustration" />
+    <p id="pageText"></p>
+    <audio id="pageAudio" controls autoplay></audio>
+    <div class="navigation">
+      <button id="prevBtn">◀ Previous Page</button>
+      <button id="nextBtn">Next Page ▶</button>
+    </div>
+  </div>
+
+  <script src="Own_Lib_JS.js"></script>
+</body>
+
+</html>
