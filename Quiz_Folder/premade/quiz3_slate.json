@@ -1,0 +1,162 @@
+{
+    "title": "Happy Abacus Counting Quiz! 🧮😄✨",
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "Abacus beads are moved with your...",
+            "options": [
+                "Feet",
+                "Fingers",
+                "Nose",
+                "Ears"
+            ],
+            "correct": 1,
+            "topic": "abacus_basics"
+        },
+        {
+            "type": "truefalse",
+            "question": "Practicing abacus makes your brain super strong! 💪🧠",
+            "correct": true
+        },
+        {
+            "type": "imageid",
+            "question": "Smile and count! What number? 😃",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_1.jpg",
+            "answer": [
+                "1"
+            ],
+            "hint": "Just one bead!"
+        },
+        {
+            "type": "mcq",
+            "question": "Max has 6 blocks 🧱 He gets 1 more. How many now?",
+            "options": [
+                "5",
+                "6",
+                "7",
+                "8"
+            ],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "type": "imageid",
+            "question": "Happy beads! What number do you see? 🎈",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_16.jpg",
+            "answer": [
+                "16"
+            ],
+            "hint": "Ten + six!"
+        },
+        {
+            "type": "mcq",
+            "question": "Emma eats 2 cookies 🍪 Mom bakes 5 more. Total cookies?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+            "correct": 1,
+            "topic": "story_addition"
+        },
+        {
+            "type": "imageid",
+            "question": "Count with joy! What number? 🥳",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_10.jpg",
+            "answer": [
+                "10",
+                "ten"
+            ],
+            "hint": "One full rod!"
+        },
+        {
+            "type": "fillblank",
+            "question": "Each rod can show numbers from 0 to ______.",
+            "answer": [
+                "9",
+                "nine"
+            ]
+        },
+        {
+            "type": "mcq",
+            "question": "What is 8 - 3?",
+            "options": [
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "type": "imageid",
+            "question": "What number is this cheerful abacus showing? 🌻",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_23.jpg",
+            "answer": [
+                "23"
+            ],
+            "hint": "Two tens and three!"
+        },
+        {
+            "type": "mcq",
+            "question": "There are 10 fingers on 2 hands 👋 How many on 1 hand?",
+            "options": [
+                "4",
+                "5",
+                "6",
+                "10"
+            ],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "type": "truefalse",
+            "question": "You can learn abacus at any age! 👶👵",
+            "correct": true
+        },
+        {
+            "type": "imageid",
+            "question": "Easy one! What number? 😊",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_0.jpg",
+            "answer": [
+                "0"
+            ],
+            "hint": "No beads up!"
+        },
+        {
+            "type": "mcq",
+            "question": "What is 2 + 5?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+            "correct": 1,
+            "topic": "addition"
+        },
+        {
+            "type": "imageid",
+            "question": "Big finish! What number? 🏆",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_28.jpg",
+            "answer": [
+                "28"
+            ],
+            "hint": "Two tens and eight!"
+        },
+        {
+            "type": "mcq",
+            "question": "Keep practicing abacus and you will become...",
+            "options": [
+                "A math champion! 🏅",
+                "A sleepy bear",
+                "A slow turtle",
+                "A hungry monster"
+            ],
+            "correct": 0,
+            "topic": "motivation"
+        }
+    ]
+}

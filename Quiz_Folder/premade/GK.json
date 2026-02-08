@@ -1,0 +1,101 @@
+{
+    "id": "gk-2025",
+    "title": "General Knowledge Quiz 🧠",
+    "time": 120,
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "Which is the smallest country in the world?",
+            "options": [
+                "Monaco",
+                "Vatican City",
+                "San Marino",
+                "Liechtenstein"
+            ],
+            "correct": 1,
+            "topic": "Countries"
+        },
+        {
+            "type": "truefalse",
+            "question": "The Great Wall of China is visible from space. 🧱",
+            "correct": false,
+            "topic": "Myths"
+        },
+        {
+            "type": "fillblank",
+            "question": "The currency of Japan is the ____.",
+            "answer": [
+                "yen"
+            ],
+            "topic": "Currency"
+        },
+        {
+            "type": "imageid",
+            "question": "Which animal is this? 🐼",
+            "image": "https://images.pexels.com/photos/34716578/pexels-photo-34716578/free-photo-of-giant-panda-sitting-with-bamboo-indoors.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "answer": [
+                "panda"
+            ],
+            "topic": "Animals"
+        },
+        {
+            "type": "mcq",
+            "question": "Who invented the telephone?",
+            "options": [
+                "Thomas Edison",
+                "Alexander Graham Bell",
+                "Nikola Tesla",
+                "Guglielmo Marconi"
+            ],
+            "correct": 1,
+            "topic": "Inventions"
+        },
+        {
+            "type": "fillblank",
+            "question": "The chemical symbol for Gold is ____.",
+            "answer": [
+                "au"
+            ],
+            "topic": "Science"
+        },
+        {
+            "type": "truefalse",
+            "question": "There are 8 planets in our solar system. 🌌",
+            "correct": true,
+            "topic": "Space"
+        },
+        {
+            "type": "mcq",
+            "question": "Which is the longest river in the world?",
+            "options": [
+                "Amazon",
+                "Nile",
+                "Yangtze",
+                "Mississippi"
+            ],
+            "correct": 1,
+            "topic": "Geography"
+        },
+        {
+            "type": "imageid",
+            "question": "Name this famous monument! 🗽",
+            "image": "https://images.unsplash.com/photo-1588384153148-ebd739ac430c?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3RhdHVlJTIwb2YlMjBsaWJlcnR5fGVufDB8fDB8fHww",
+            "answer": [
+                "statue of liberty"
+            ],
+            "topic": "Landmarks"
+        },
+        {
+            "type": "mcq",
+            "question": "What is the largest mammal on Earth?",
+            "options": [
+                "Elephant",
+                "Blue Whale",
+                "Giraffe",
+                "Great White Shark"
+            ],
+            "correct": 1,
+            "topic": "Animals"
+        }
+    ]
+}

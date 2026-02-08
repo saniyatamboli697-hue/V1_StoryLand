@@ -1,0 +1,173 @@
+{
+    "title": "Magical Abacus Numbers Quiz! 🪄🔢✨",
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "How many beads make 5 on one rod?",
+            "options": [
+                "All lower beads!",
+                "Only 1 Upper bead",
+                "3 Lower beads",
+                "Only 1 Lower bead"
+            ],
+            "correct": 1,
+            "topic": "abacus_basics"
+        },
+        {
+            "type": "truefalse",
+            "question": "One upper bead is worth 5 lower beads! ✨",
+            "correct": true
+        },
+        {
+            "type": "imageid",
+            "question": "Magic beads! What number appears? 🪄",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_6.jpg",
+            "answer": [
+                "6"
+            ],
+            "hint": "Six lower beads up!"
+        },
+        {
+            "type": "mcq",
+            "question": "Lily has 4 pencils ✏️ She buys 3 more. Total?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+            "correct": 1,
+            "topic": "addition"
+        },
+        {
+            "type": "imageid",
+            "question": "Read the magic number! 🔮",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_11.jpg",
+            "answer": [
+                "11"
+            ],
+            "hint": "Ten and one!"
+        },
+        {
+            "type": "mcq",
+            "question": "Ben catches 5 fish 🐟 Dad catches 2 more. How many together?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+            "correct": 1,
+            "topic": "story_addition"
+        },
+        {
+            "type": "imageid",
+            "question": "What number is hiding here? 🕵️",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_13.jpg",
+            "answer": [
+                "13"
+            ],
+            "hint": "Ten + three!"
+        },
+        {
+            "type": "mcq",
+            "question": "What is 3 + 4?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+            "correct": 1,
+            "topic": "addition"
+        },
+        {
+            "type": "mcq",
+            "question": "Zoe has 9 stickers ⭐ She uses 3. How many left?",
+            "options": [
+                "5",
+                "6",
+                "7",
+                "8"
+            ],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "type": "imageid",
+            "question": "Big number time! What is it? 🚀",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_30.jpg",
+            "answer": [
+                "30"
+            ],
+            "hint": "Three full rods!"
+        },
+        {
+            "type": "fillblank",
+            "question": "The line in the middle of abacus is called ______ bar.",
+            "answer": [
+                "divider",
+                "separator"
+            ]
+        },
+        {
+            "type": "mcq",
+            "question": "What is 10 + 0?",
+            "options": [
+                "0",
+                "9",
+                "10",
+                "11"
+            ],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "type": "truefalse",
+            "question": "Abacus was used even before calculators were invented! 🕰️",
+            "correct": true
+        },
+        {
+            "type": "imageid",
+            "question": "Easy peasy! What number? 😜",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_2.jpg",
+            "answer": [
+                "2"
+            ],
+            "hint": "Two beads up!"
+        },
+        {
+            "type": "mcq",
+            "question": "There are 7 ducks 🦆 2 swim away. How many remain?",
+            "options": [
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "type": "imageid",
+            "question": "Final magic number! What is it? 🎊",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_19.jpg",
+            "answer": [
+                "19"
+            ],
+            "hint": "Ten + nine!"
+        },
+        {
+            "type": "mcq",
+            "question": "You finished the quiz! You are a...",
+            "options": [
+                "Math magician! 🪄",
+                "Sleepy wizard",
+                "Hungry hero",
+                "Slow snail"
+            ],
+            "correct": 0,
+            "topic": "motivation"
+        }
+    ]
+}

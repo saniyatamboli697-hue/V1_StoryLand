@@ -1,0 +1,109 @@
+{
+    "id": "history-2025",
+    "title": "History Time Traveler Quiz ⏳",
+    "time": 120,
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "Who built the Taj Mahal?",
+            "options": [
+                "Akbar",
+                "Shah Jahan",
+                "Aurangzeb",
+                "Babur"
+            ],
+            "correct": 1,
+            "topic": "Mughal Empire"
+        },
+        {
+            "type": "truefalse",
+            "question": "The Indus Valley Civilization was one of the oldest in the world. 🏺",
+            "correct": true,
+            "topic": "Ancient India"
+        },
+        {
+            "type": "fillblank",
+            "question": "The first President of independent India was ____.",
+            "answer": [
+                "rajendra prasad",
+                "dr rajendra prasad",
+                "dr. rajendra prasad"
+            ],
+            "topic": "Modern India"
+        },
+        {
+            "type": "imageid",
+            "question": "Which famous structure is this? 🗼",
+            "image": "https://akm-img-a-in.tosshub.com/sites/media2/indiatoday/images/stories/2017April/qutub1_042717100950.jpg",
+            "answer": [
+                "qutub minar",
+                "qutb minar",
+                "qutab minar"
+            ],
+            "topic": "Monuments"
+        },
+        {
+            "type": "mcq",
+            "question": "In which year did India gain independence?",
+            "options": [
+                "1945",
+                "1947",
+                "1950",
+                "1930"
+            ],
+            "correct": 1,
+            "topic": "Freedom Struggle"
+        },
+        {
+            "type": "fillblank",
+            "question": "The leader known as the 'Iron Man of India' is ____ Patel.",
+            "answer": [
+                "sardar",
+                "sardar vallabhbhai",
+                "vallabhbhai"
+            ],
+            "topic": "Leaders"
+        },
+        {
+            "type": "truefalse",
+            "question": "Mahatma Gandhi led the Dandi Salt March. 🧂",
+            "correct": true,
+            "topic": "Freedom Struggle"
+        },
+        {
+            "type": "mcq",
+            "question": "Which empire was founded by Chandragupta Maurya?",
+            "options": [
+                "Gupta",
+                "Maurya",
+                "Mughal",
+                "Chola"
+            ],
+            "correct": 1,
+            "topic": "Ancient Empires"
+        },
+        {
+            "type": "imageid",
+            "question": "Name this freedom fighter! 🇮🇳",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk9Qh9cYzkIWVV7CwPNqlTCftXFeRkkcFCq0zanNE7T61U3J63BAwA7c4v-CxUkduzkkxjj7JFSoVX6D1pGdPvQGRcUc2qHZJp8y5BgTc&s=10",
+            "answer": [
+                "mahatma gandhi",
+                "gandhi",
+                "mahathma gandhi"
+            ],
+            "topic": "Leaders"
+        },
+        {
+            "type": "mcq",
+            "question": "The Battle of Plassey was fought in which year?",
+            "options": [
+                "1757",
+                "1857",
+                "1526",
+                "1947"
+            ],
+            "correct": 0,
+            "topic": "Colonial India"
+        }
+    ]
+}

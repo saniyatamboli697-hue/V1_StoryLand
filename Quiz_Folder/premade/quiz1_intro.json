@@ -1,0 +1,196 @@
+{
+    "title": "Abacus Adventure & Fun Maths Quiz for Beginners! 🧮✨",
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "What is an abacus used for? 🧮",
+            "options": [
+                "Playing games",
+                "Doing maths",
+                "Drawing pictures",
+                "Eating snacks"
+            ],
+            "correct": 1,
+            "topic": "abacus_basics"
+        },
+        {
+            "type": "truefalse",
+            "question": "Abacus helps make your calculations faster ! 🧠",
+            "correct": true
+        },
+        {
+            "type": "imageid",
+            "question": "Look at the abacus beads 👀 What number is shown?",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_5.jpg",
+            "answer": [
+                "5"
+            ],
+            "topic": "Count the beads touching the bar!"
+        },
+        {
+            "type": "mcq",
+            "question": "If you have 3 candies 🍬 and your friend gives you 2 more, how many do you have now?",
+            "options": [
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "correct": 1,
+            "topic": "addition"
+        },
+        {
+            "type": "imageid",
+            "question": "What number do these abacus beads show? 🌟",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_3.jpg",
+            "answer": [
+                "3"
+            ],
+            "topic": "All lower beads of a rod = 4!"
+        },
+        {
+            "type": "mcq",
+            "question": "Mia's cat has 4 kittens 🐱 One more kitten joins. How many kittens now?",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "6"
+            ],
+            "correct": 2,
+            "topic": "story_addition"
+        },
+        {
+            "type": "imageid",
+            "question": "Count the beads carefully! What number is this? 😊",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_7.jpg",
+            "answer": [
+                "7"
+            ],
+            "topic": "Look at the bottom beads!"
+        },
+        {
+            "type": "mcq",
+            "question": "What is 1 + 1?",
+            "options": [
+                "1",
+                "2",
+                "3",
+                "4"
+            ],
+            "correct": 1,
+            "topic": "addition"
+        },
+        {
+            "type": "mcq",
+            "question": "Timmy has 5 balloons 🎈 He gives 1 to his sister. How many left?",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "6"
+            ],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "type": "imageid",
+            "question": "What number is shown on this abacus? 🧮",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_12.jpg",
+            "answer": [
+                "12"
+            ],
+            "topic": "Tens + ones!"
+        },
+        {
+            "type": "mcq",
+            "question": "There are 6 birds on a tree 🐦 3 fly away. How many are left?",
+            "options": [
+                "2",
+                "3",
+                "4",
+                "9"
+            ],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "type": "imageid",
+            "question": "Can you read this abacus number? 🌈",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_20.jpg",
+            "answer": [
+                "20",
+                "Twenty"
+            ],
+            "topic": "Two full rods!"
+        },
+        {
+            "type": "mcq",
+            "question": "Sara picks 4 flowers 🌸 Mom gives her 3 more. How many flowers now?",
+            "options": [
+                "6",
+                "7",
+                "8",
+                "9"
+            ],
+            "correct": 1,
+            "topic": "story_addition"
+        },
+        {
+            "type": "imageid",
+            "question": "What number is this on the abacus? 🐻",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_8.jpg",
+            "answer": [
+                "8"
+            ],
+            "topic": "Count carefully!"
+        },
+        {
+            "type": "fillblank",
+            "question": "You move ______ to do math on abacus.",
+            "answer": [
+                "beads",
+                "bead"
+            ]
+        },
+        {
+            "type": "mcq",
+            "question": "What is 5 + 0?",
+            "options": [
+                "0",
+                "4",
+                "5",
+                "6"
+            ],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "type": "mcq",
+            "question": "The abacus helps us to...",
+            "options": [
+                "Sing songs",
+                "Count faster",
+                "Fly kites",
+                "Cook food"
+            ],
+            "correct": 1,
+            "topic": "abacus_basics"
+        },
+        {
+            "type": "truefalse",
+            "question": "Abacus is a modern calculator with batteries. 🔋",
+            "correct": false
+        },
+        {
+            "type": "imageid",
+            "question": "Final challenge! What number is shown? 🎉",
+            "image": "https://iacterraformst.blob.core.windows.net/storyteller2/Images/abacus_15.jpg",
+            "answer": [
+                "15",
+                "fifteen"
+            ],
+            "topic": "One ten and five ones!"
+        }
+    ]
+}

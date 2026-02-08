@@ -1,0 +1,102 @@
+{
+    "id": "sports-2025",
+    "title": "Sports Champion Quiz ⚽",
+    "time": 120,
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "Which sport is played at Wimbledon?",
+            "options": [
+                "Cricket",
+                "Football",
+                "Tennis",
+                "Badminton"
+            ],
+            "correct": 2,
+            "topic": "Tennis"
+        },
+        {
+            "type": "truefalse",
+            "question": "The Olympics are held every 4 years. 🏅",
+            "correct": true,
+            "topic": "Olympics"
+        },
+        {
+            "type": "fillblank",
+            "question": "The most famous football tournament is called the ____ World Cup.",
+            "answer": [
+                "fifa"
+            ],
+            "topic": "Football"
+        },
+        {
+            "type": "imageid",
+            "question": "Which sport uses this equipment? 🏏",
+            "image": "https://media.istockphoto.com/id/177491473/photo/cricket-bat-and-ball.jpg?s=612x612&w=0&k=20&c=QqX5lbsHBUi7VZc4yLyeW52LVttKtZQ5e-LXEG-uKMI=",
+            "answer": [
+                "cricket"
+            ],
+            "topic": "Cricket"
+        },
+        {
+            "type": "mcq",
+            "question": "How many players are on a basketball team on the court?",
+            "options": [
+                "5",
+                "6",
+                "7",
+                "11"
+            ],
+            "correct": 0,
+            "topic": "Basketball"
+        },
+        {
+            "type": "fillblank",
+            "question": "The fastest man in the world is known for running the 100m sprint. His name is ____ Bolt.",
+            "answer": [
+                "usain"
+            ],
+            "topic": "Athletics"
+        },
+        {
+            "type": "truefalse",
+            "question": "In cricket, a 'century' means scoring 100 runs. 🏏",
+            "correct": true,
+            "topic": "Cricket"
+        },
+        {
+            "type": "mcq",
+            "question": "Which country has won the most FIFA World Cups?",
+            "options": [
+                "Germany",
+                "Brazil",
+                "Italy",
+                "Argentina"
+            ],
+            "correct": 1,
+            "topic": "Football"
+        },
+        {
+            "type": "imageid",
+            "question": "Name this famous trophy! 🏆",
+            "image": "https://benamic.b-cdn.net/app/uploads/2019/06/World-Cup-Promotions-We-Like-to-Remember-Time-and-Time-Again.jpg?width=1100",
+            "answer": [
+                "fifa world cup",
+                "world cup"
+            ],
+            "topic": "Trophies"
+        },
+        {
+            "type": "mcq",
+            "question": "In which sport would you perform a 'slam dunk'?",
+            "options": [
+                "Volleyball",
+                "Basketball",
+                "Tennis",
+                "Baseball"
+            ],
+            "correct": 1,
+            "topic": "Basketball"
+        }
+    ]
+}

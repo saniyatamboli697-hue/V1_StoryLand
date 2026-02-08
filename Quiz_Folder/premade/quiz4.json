@@ -1,0 +1,185 @@
+{
+    "title": "Super Abacus Friends Quiz! 🧮👫✨",
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "Abacus is a tool from long ago. It is very... 🕰️",
+            "options": [
+                "New",
+                "Old",
+                "Magic",
+                "Heavy"
+            ],
+            "correct": 1,
+            "topic": "abacus_basics"
+        },
+        {
+            "type": "truefalse",
+            "question": "You can use abacus without electricity! ⚡",
+            "correct": true
+        },
+        {
+            "type": "imageid",
+            "question": "How many beads are up? Count them! 👆",
+            "image": "C:/Users/saniy/OneDrive/Apps/StoryLand/Quiz_Folder/premade/abacus_quiz/abacus_3.jpg",
+            "answer": [
+                "3"
+            ],
+            "hint": "Only the ones touching the bar!"
+        },
+        {
+            "type": "mcq",
+            "question": "Leo has 2 toys 🚗 He finds 3 more. How many now?",
+            "options": [
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "correct": 1,
+            "topic": "addition"
+        },
+        {
+            "type": "imageid",
+            "question": "What number is shining on the abacus? ⭐",
+            "image": "C:/Users/saniy/OneDrive/Apps/StoryLand/Quiz_Folder/premade/abacus_quiz/abacus_9.jpg",
+            "answer": [
+                "9"
+            ],
+            "hint": "Almost a full rod!"
+        },
+        {
+            "type": "mcq",
+            "question": "Anna draws 5 stars ⭐ She draws 4 more. How many stars?",
+            "options": [
+                "8",
+                "9",
+                "10",
+                "11"
+            ],
+            "correct": 1,
+            "topic": "story_addition"
+        },
+        {
+            "type": "imageid",
+            "question": "Read this abacus number carefully! 😄",
+            "image": "C:/Users/saniy/OneDrive/Apps/StoryLand/Quiz_Folder/premade/abacus_quiz/abacus_14.jpg",
+            "answer": [
+                "14"
+            ],
+            "hint": "One ten and four ones!"
+        },
+        {
+            "type": "mcq",
+            "question": "What is 4 + 1?",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "6"
+            ],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "type": "mcq",
+            "question": "Jack has 7 marbles 🔵 He loses 2. How many left?",
+            "options": [
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "type": "imageid",
+            "question": "What number is this happy abacus showing? 😊",
+            "image": "C:/Users/saniy/OneDrive/Apps/StoryLand/Quiz_Folder/premade/abacus_quiz/abacus_25.jpg",
+            "answer": [
+                "25"
+            ],
+            "hint": "Two tens and five ones!"
+        },
+        {
+            "type": "fillblank",
+            "question": "Abacus has rods and ______.",
+            "answer": [
+                "beads",
+                "bead"
+            ]
+        },
+        {
+            "type": "mcq",
+            "question": "There are 8 butterflies 🦋 4 fly away. How many stay?",
+            "options": [
+                "3",
+                "4",
+                "5",
+                "6"
+            ],
+            "correct": 1,
+            "topic": "subtraction"
+        },
+        {
+            "type": "imageid",
+            "question": "Super easy! What number? 🌟",
+            "image": "C:/Users/saniy/OneDrive/Apps/StoryLand/Quiz_Folder/premade/abacus_quiz/abacus_4.jpg",
+            "answer": [
+                "4"
+            ],
+            "hint": "Four lower beads up!"
+        },
+        {
+            "type": "mcq",
+            "question": "What is 0 + 6?",
+            "options": [
+                "0",
+                "5",
+                "6",
+                "7"
+            ],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "type": "truefalse",
+            "question": "Abacus can help you become a math superhero! 💪",
+            "correct": true
+        },
+        {
+            "type": "mcq",
+            "question": "Friends share 3 cookies 🍪 each. How many for 2 friends?",
+            "options": [
+                "4",
+                "5",
+                "6",
+                "7"
+            ],
+            "correct": 2,
+            "topic": "addition"
+        },
+        {
+            "type": "imageid",
+            "question": "Last one! What number is this? 🎈",
+            "image": "C:/Users/saniy/OneDrive/Apps/StoryLand/Quiz_Folder/premade/abacus_quiz/abacus_18.jpg",
+            "answer": [
+                "18"
+            ],
+            "hint": "Ten + eight!"
+        },
+        {
+            "type": "mcq",
+            "question": "You are practicing abacus. You are getting...",
+            "options": [
+                "Sleepy",
+                "Smarter",
+                "Hungry",
+                "Tired"
+            ],
+            "correct": 1,
+            "topic": "motivation"
+        }
+    ]
+}

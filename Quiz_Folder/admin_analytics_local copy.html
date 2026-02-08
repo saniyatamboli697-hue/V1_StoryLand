@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryLand Admin Analytics (Local)</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg">
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css">
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            text-shadow: 2px 2px 10px black;
+            margin: 20px 0;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        select,
+        input[type="text"] {
+            padding: 12px;
+            border-radius: 15px;
+            border: none;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            font-size: 1.1em;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 1.3em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        th,
+        td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        th {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .section {
+            margin: 40px 0;
+        }
+
+        .no-data {
+            text-align: center;
+            font-size: 1.5em;
+            padding: 40px;
+            opacity: 0.8;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@azure/storage-blob@12/dist/index.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔐 StoryLand Local Admin Analytics</h1>
+        <p style="text-align:center; font-size:1.2em;">View all quiz data from this browser/device</p>
+
+        <!-- Filters -->
+        <div class="filters">
+            <div>
+                <label><strong>Filter by Quiz:</strong></label><br>
+                <select id="quizFilter">
+                    <option value="">All Quizzes</option>
+                </select>
+            </div>
+            <div>
+                <label><strong>Filter by User:</strong></label><br>
+                <select id="userFilter">
+                    <option value="">All Users</option>
+                </select>
+            </div>
+            <div>
+                <label><strong>Search in Table:</strong></label><br>
+                <input type="text" id="searchInput" placeholder="Search quiz/user/score...">
+            </div>
+        </div>
+
+        <div class="stats" id="globalStats"></div>
+
+        <div class="section">
+            <h2>📊 All Quiz Attempts</h2>
+            <div id="allAttempts"></div>
+        </div>
+
+        <div class="section">
+            <h2>🏆 Quiz-wise Summary</h2>
+            <div id="quizSummary"></div>
+        </div>
+
+        <div class="section">
+            <h2>👥 Active Users List</h2>
+            <div id="activeUsers"></div>
+        </div>
+    </div>
+
+    <script>
+        // Collect all data
+        const allAttempts = [];
+        const users = new Set();
+        const quizzes = new Set();
+        const userData = {}; // user -> {attempts, totalScore, totalPossible}
+
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key.startsWith('quizProfile_')) {
+                try {
+                    const profile = JSON.parse(localStorage.getItem(key));
+                    const userEmail = key.replace('quizProfile_', '').replace(/_/g, '@').replace(/-/g, '.');
+
+                    users.add(userEmail);
+                    userData[userEmail] = userData[userEmail] || { attempts: 0, score: 0, possible: 0 };
+
+                    if (profile.completed) {
+                        profile.completed.forEach(attempt => {
+                            const entry = {
+                                user: userEmail,
+                                quiz: attempt.name || 'Unknown Quiz',
+                                score: attempt.score,
+                                total: attempt.total,
+                                percentage: attempt.percentage || Math.round((attempt.score / attempt.total) * 100),
+                                date: attempt.date || 'Unknown'
+                            };
+                            allAttempts.push(entry);
+                            quizzes.add(entry.quiz);
+
+                            userData[userEmail].attempts++;
+                            userData[userEmail].score += attempt.score;
+                            userData[userEmail].possible += attempt.total;
+                        });
+                    }
+                } catch (e) { console.error(e); }
+            }
+        }
+
+        // Sort newest first
+        allAttempts.sort((a, b) => b.date.localeCompare(a.date));
+
+        // Populate filters
+        [...quizzes].sort().forEach(q => {
+            const opt = document.createElement('option');
+            opt.value = q;
+            opt.textContent = q;
+            document.getElementById('quizFilter').appendChild(opt);
+        });
+
+        [...users].sort().forEach(u => {
+            const opt = document.createElement('option');
+            opt.value = u;
+            opt.textContent = u;
+            document.getElementById('userFilter').appendChild(opt);
+        });
+
+        // Global stats
+        const totalAttemptsCount = allAttempts.length;
+        const percentages = allAttempts.map(a => a.percentage).filter(p => p > 0);
+        const highest = percentages.length ? Math.max(...percentages) : 0;
+        const lowest = percentages.length ? Math.min(...percentages) : 100;
+        const average = percentages.length ? Math.round(percentages.reduce((a, b) => a + b, 0) / percentages.length) : 0;
+
+        document.getElementById('globalStats').innerHTML = `
+            <div class="stat"><strong>${users.size}</strong><br>Unique Users</div>
+            <div class="stat"><strong>${totalAttemptsCount}</strong><br>Total Attempts</div>
+            <div class="stat"><strong>${highest}%</strong><br>Highest Score</div>
+            <div class="stat"><strong>${lowest}%</strong><br>Lowest Score</div>
+            <div class="stat"><strong>${average}%</strong><br>Average Score</div>
+            <div class="stat"><strong>${quizzes.size}</strong><br>Different Quizzes</div>
+        `;
+
+        // Quiz-wise summary
+        const quizStats = {};
+        allAttempts.forEach(a => {
+            if (!quizStats[a.quiz]) quizStats[a.quiz] = { count: 0, scores: [] };
+            quizStats[a.quiz].count++;
+            quizStats[a.quiz].scores.push(a.percentage);
+        });
+
+        const quizSummaryHTML = Object.keys(quizStats).map(quiz => {
+            const s = quizStats[quiz];
+            const avg = Math.round(s.scores.reduce((a, b) => a + b, 0) / s.scores.length);
+            const high = Math.max(...s.scores);
+            const low = Math.min(...s.scores);
+            return `
+                <div class="stat">
+                    <strong>${quiz}</strong><br>
+                    Attempts: ${s.count}<br>
+                    Highest: ${high}%<br>
+                    Average: ${avg}%<br>
+                    Lowest: ${low}%
+                </div>
+            `;
+        }).join('');
+
+        document.getElementById('quizSummary').innerHTML = quizSummaryHTML || '<p class="no-data">No quiz data yet</p>';
+
+        // Active users (sorted by attempts)
+        const activeUsers = Object.entries(userData)
+            .sort((a, b) => b[1].attempts - a[1].attempts)
+            .map(([user, data]) => {
+                const acc = data.possible ? Math.round(data.score / data.possible * 100) : 0;
+                return `
+                    <div class="stat">
+                        <strong>${user}</strong><br>
+                        Quizzes: ${data.attempts}<br>
+                        Accuracy: ${acc}%
+                    </div>
+                `;
+            }).join('');
+
+        document.getElementById('activeUsers').innerHTML = activeUsers || '<p class="no-data">No users yet</p>';
+
+        // Render table
+        function renderTable(data) {
+            if (data.length === 0) {
+                document.getElementById('allAttempts').innerHTML = '<p class="no-data">No matching attempts found</p>';
+                return;
+            }
+            document.getElementById('allAttempts').innerHTML = `
+                <table>
+                    <tr><th>User</th><th>Quiz</th><th>Score</th><th>Percentage</th><th>Date</th></tr>
+                    ${data.map(a => `
+                        <tr>
+                            <td>${a.user}</td>
+                            <td>${a.quiz}</td>
+                            <td>${a.score}/${a.total}</td>
+                            <td>${a.percentage}%</td>
+                            <td>${a.date}</td>
+                        </tr>
+                    `).join('')}
+                </table>
+            `;
+        }
+
+        renderTable(allAttempts);
+
+        // Filter logic
+        document.getElementById('quizFilter').addEventListener('change', filter);
+        document.getElementById('userFilter').addEventListener('change', filter);
+        document.getElementById('searchInput').addEventListener('input', filter);
+
+        function filter() {
+            let filtered = allAttempts;
+
+            const quizVal = document.getElementById('quizFilter').value;
+            if (quizVal) filtered = filtered.filter(a => a.quiz === quizVal);
+
+            const userVal = document.getElementById('userFilter').value;
+            if (userVal) filtered = filtered.filter(a => a.user === userVal);
+
+            const searchVal = document.getElementById('searchInput').value.toLowerCase();
+            if (searchVal) {
+                filtered = filtered.filter(a =>
+                    a.user.toLowerCase().includes(searchVal) ||
+                    a.quiz.toLowerCase().includes(searchVal) ||
+                    a.percentage.toString().includes(searchVal)
+                );
+            }
+
+            renderTable(filtered);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon"
+        href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg">
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css">
+    <title>Ultimate Quiz Beach 🏖️✨ - Choose Your Adventure!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Princess+Sofia&family=Comic+Neue:wght@300;400;700&display=swap');
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .categories {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #00c9ff 0%, #92fe9dd9 100%);
+            min-height: 100vh;
+            color: #fff;
+            padding: 30px 20px;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+
+        /* .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin-bottom: 80px;
+        } */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .flip-card {
+            background: transparent;
+            width: 100%;
+            height: 420px;
+            perspective: 1200px;
+            cursor: pointer;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.9s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            transform-style: preserve-3d;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .flip-card-front {
+            background-size: cover;
+            background-position: center;
+            pointer-events: none;
+        }
+
+        .flip-card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(111, 110, 110, 0.734), rgba(0, 0, 0, 0.148));
+            border-radius: 30px;
+            pointer-events: none;
+        }
+
+        .flip-card-back {
+            pointer-events: auto;
+        }
+
+        .flip-card-front h3 {
+            font-size: 2.5em;
+            font-family: 'Princess Sofia', cursive;
+            color: #fff;
+            z-index: 1;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+        }
+
+        .flip-card-back {
+            /* background: linear-gradient(to top, rgba(111, 110, 110, 0.734), rgba(0, 0, 0, 0.148)); */
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: rotateY(180deg);
+            padding: 40px;
+        }
+
+        .flip-card-back h3 {
+            font-size: 2em;
+            color: sandybrown;
+            font-family: 'Irish Grover', cursive;
+            margin-bottom: 15px;
+        }
+
+        .flip-card-back p {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            line-height: 1.5;
+            color: #c5eaff;
+            text-shadow: 0 0 6px rgba(255, 255, 255, 0.392);
+
+        }
+
+        .cta-btn:hover {
+            transition: all 0.3s;
+        }
+
+
+        #emailForm {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 0;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            padding: 20px 30px;
+            border-radius: 60px 0 0 60px;
+            border: none;
+            font-size: 1em;
+            outline: none;
+        }
+
+        #emailForm button {
+            padding: 20px 50px;
+            background: #8435cd;
+            color: white;
+            border: none;
+            border-radius: 0 60px 60px 0;
+            font-size: 1em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+
+        .email-section {
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.371);
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .email-section h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="email"] {
+            padding: 15px;
+            width: 300px;
+            border-radius: 50px 0 0 50px;
+            border: none;
+            font-size: 1em;
+        }
+
+        button[type="submit"] {
+            padding: 15px 30px;
+            background: #feca57;
+            color: white;
+            border: none;
+            border-radius: 0 50px 50px 0;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+
+        #emailForm button:hover {
+            background: #6ceb5be7;
+        }
+
+        .dashboard-link {
+            margin-top: 40px;
+            font-size: 1em;
+        }
+
+        .dashboard-link a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .flip-card {
+                height: 350px;
+            }
+
+            .flip-card-front h2 {
+                font-size: 2em;
+            }
+
+
+            #emailForm {
+                flex-direction: column;
+            }
+
+            input[type="email"],
+            #emailForm button {
+                border-radius: 60px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+                <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+
+                <li><a href="./quiz-category.html">Quiz</a></li>
+                <li><a href="./dashboard_Index.html">Dashboard</a></li>
+                <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Welcome to Ultimate Quiz Beach 🏖️!</h1>
+            <p class="fade-in">Dive into knowledge waves! Choose your category & ride the fun! 🌊✨</p>
+            <!-- <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/girl.png" alt="Mascot"
+                class="R_side-mascot"> -->
+
+            <div class="floating-particles"></div>
+            <button class="cta-btn rotate-hover" type="button"
+                onclick="document.querySelector('.categories').scrollIntoView({ behavior: 'smooth' });">
+                Start Your Adventure ✨
+            </button>
+        </div>
+
+    </section>
+    <section class="categories">
+        <div class="container">
+
+            <h2>Fun Quiz Hub 🧠✨</h2>
+            <p>Select a category and challenge yourself with exciting questions!</p>
+
+
+            <div class="categories">
+                <!-- Science -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"
+                            style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9Kib2hp-ng-LmHF87wCK3Ad5uNazli_AfaQ&s');">
+                            <h3>🔬 Science</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Scientific Discovery</h3>
+                            <p>Physics • Chemistry • Biology • Space • Inventions</p>
+                            <button class="cta-btn rotate-hover" type="button" onclick="startQuiz('Science')">Start Quiz
+                                🌟</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- History -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"
+                            style="background-image: url('https://www.english-heritage.org.uk/siteassets/home/learn/1066-and-the-norman-conquest/top-10-moment-from-history/serpentine/king-harolds-death.jpg?w=640&mode=none&scale=downscale&quality=60&anchor=&WebsiteVersion=20200219');">
+                            <h3>🏛️ History</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Time Traveler</h3>
+                            <p>Ancient Civilizations • Wars • Leaders • Events • India & World</p>
+                            <button class="cta-btn rotate-hover" type="button" onclick="startQuiz('History')">Start Quiz
+                                ⏳</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Geography -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"
+                            style="background-image: url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2VvZ3JhcGh5fGVufDB8fDB8fHww');">
+                            <h3>🌍 Geography</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>World Explorer</h3>
+                            <p>Countries • Capitals • Rivers • Mountains • Flags • Wonders</p>
+                            <button class="cta-btn rotate-hover" type="button" onclick="startQuiz('Geography')">Start
+                                Quiz 🗺️</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Sports -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"
+                            style="background-image: url('https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');">
+                            <h3>⚽ Sports</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Champion Spirit</h3>
+                            <p>Cricket • Football • Olympics • Records • Players • India</p>
+                            <button class="cta-btn rotate-hover" type="button" onclick="startQuiz('Sports')">Start Quiz
+                                🏆</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Knowledge -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"
+                            style="background-image: url('https://media.licdn.com/dms/image/v2/D4D12AQFFeXTwgsoOfQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1731420734027?e=2147483647&v=beta&t=T9Va-DiyKrXh_E5FxTiDGi_m-CETrsHHJgfM4FHLRXM');">
+                            <h3>🧠 General Knowledge</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>All-Rounder</h3>
+                            <p>Mixed topics • Current Affairs • Facts • Records • Fun Trivia</p>
+                            <button class="cta-btn rotate-hover" type="button" onclick="startQuiz('GK')">Start Quiz
+                                🌈</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Math Quiz - NEW CARD -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front"
+                            style="background-image: url('https://img.freepik.com/free-photo/blackboard-inscribed-with-scientific-formulas-calculations_1150-19413.jpg?semt=ais_hybrid&w=740&q=80');">
+                            <h3>➕ Math Fun</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Number Ninja</h3>
+                            <p>Addition • Subtraction • Shapes • Multiplication • Fun Problems</p>
+                            <button class="cta-btn rotate-hover" type="button" onclick="startQuiz('Math')">Start Quiz
+                                🧮</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Add more categories as needed here -->
+            </div>
+            <div class="email-section">
+                <h3>📊 Track Your Progress Across All Quizzes</h3>
+                <p style="color: #fff; font-weight: bold; margin-bottom: 10px;">
+                    💡 Required: Enter your email to save scores and unlock dashboard!
+                </p>
+
+                <p>Enter your email to save scores, view dashboard & get personalized insights!</p>
+                <form id="emailForm">
+                    <input type="email" id="userEmail" placeholder="yourname@example.com" class="start-btn" required>
+                    <button type="submit" class="start-btn">Save Email & Play</button>
+                </form>
+                <div class="dashboard-link">
+                    Already have progress? <a href="./dashboard_Index.html">Go to My Dashboard →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+
+
+
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+
+    <script>
+        // SINGLE startQuiz function - handles BOTH flip cards AND email
+        function startQuiz(quizName) {
+            const email = localStorage.getItem('quizUserEmail');
+
+            if (!email || !quizName) {
+                // No email OR no quiz selected
+                if (!quizName) {
+                    alert("No quiz selected! 😔");
+                    return;
+                }
+
+                // Scroll to email section and prompt
+                document.querySelector('.email-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                alert('⚠️ Please enter and save your email first to track your quiz progress!');
+                document.getElementById('userEmail').focus();
+                return;
+            }
+
+            // Email exists + quiz selected → GO TO QUIZ
+            const btn = event ? event.target : null;
+            if (btn) {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = "Loading... ⏳";
+                btn.disabled = true;
+                setTimeout(() => {
+                    window.location.href = `ai-quiz.html?quiz=${quizName}`;
+                }, 300);
+            } else {
+                window.location.href = `ai-quiz.html?quiz=${quizName}`;
+            }
+        }
+
+        // Email form handler
+        document.addEventListener('DOMContentLoaded', function () {
+            const savedEmail = localStorage.getItem('quizUserEmail');
+            if (savedEmail) {
+                document.getElementById('userEmail').value = savedEmail;
+            }
+
+            document.getElementById('emailForm').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const email = document.getElementById('userEmail').value.trim().toLowerCase();
+
+                if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    localStorage.setItem('quizUserEmail', email);
+                    alert('Email saved successfully! 🎉 Now you can start any quiz with progress tracking.');
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

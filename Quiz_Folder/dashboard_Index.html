@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Quiz Dashboard 📊✨</title>
+    <link rel="icon" type="image/x-icon"
+        href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg">
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Irish+Grover&family=Princess+Sofia&family=Comic+Neue:wght@400;700&display=swap");
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .head {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .head h1 {
+            font-size: 2.8em;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Irish Grover', cursive;
+        }
+
+        .head p {
+            font-size: 1.4em;
+            opacity: 0.9;
+        }
+
+        .user-info {
+            text-align: center;
+            margin: 25px 0;
+            font-size: 1.3em;
+            color: white;
+        }
+
+        .user-info button {
+            margin-left: 15px;
+            padding: 8px 18px;
+            border: none;
+            border-radius: 20px;
+            background: #ff6b6b;
+            color: white;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .user-info button:hover {
+            background: #e55a5a;
+            transform: scale(1.05);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 10px 0;
+        }
+
+        .stat-label {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .section h2 {
+            font-size: 1.9em;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            font-family: 'Irish Grover', cursive;
+        }
+
+        .weak-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .topic-tag {
+            background: #e74c3c;
+            color: white;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1em;
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+        }
+
+        .quiz-history {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .quiz-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 20px;
+            padding: 22px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s;
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .quiz-name {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .quiz-date {
+            color: #555;
+            font-size: 1em;
+            margin-bottom: 12px;
+        }
+
+        .score-bar {
+            height: 20px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 12px 0;
+        }
+
+        .score-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            width: 0%;
+            transition: width 1.6s ease-out;
+        }
+
+        .no-data {
+            text-align: center;
+            font-size: 1.5em;
+            color: #888;
+            padding: 60px 20px;
+            grid-column: 1 / -1;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        .actions {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .action-btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            transition: all 0.4s ease;
+            margin: 12px;
+            color: white;
+            min-width: 220px;
+        }
+
+        .btn-download {
+            background: linear-gradient(45deg, #4ecdc4, #44a08d);
+        }
+
+        .btn-import {
+            background: linear-gradient(45deg, #ff6b6b, #feca57);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-share-pdf {
+            background: linear-gradient(45deg, #f093fb, #ff9a9e);
+        }
+
+        .btn-clear {
+            background: #e74c3c;
+            margin-top: 30px;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        .btn-import input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        /* Print Styles - Your Exact Desired PDF Format */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+
+            #dashboard-report,
+            #dashboard-report * {
+                visibility: visible;
+            }
+
+            #dashboard-report {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                padding: 40px;
+                background: white !important;
+                color: black !important;
+            }
+
+            .navbar,
+            footer,
+            .actions {
+                display: none !important;
+            }
+
+            .head {
+                background: none !important;
+                color: black !important;
+            }
+
+            .stat-card,
+            .quiz-card,
+            .section {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                break-inside: avoid;
+                margin-bottom: 30px;
+            }
+
+            .score-fill {
+                background: #667eea !important;
+            }
+
+            .user-info {
+                color: black !important;
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .head h1 {
+                font-size: 2.2em;
+            }
+
+            .head p {
+                font-size: 1.2em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quiz-history {
+                grid-template-columns: 1fr;
+            }
+
+            .action-btn {
+                display: block;
+                width: 90%;
+                margin: 12px auto;
+                font-size: 1.2em;
+            }
+
+            .stat-number {
+                font-size: 2.6em;
+            }
+        }
+
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .badge {
+            text-align: center;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease;
+        }
+
+        .badge:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .badge.unlocked {
+            animation: bounce 1s ease;
+        }
+
+        .badge-icon {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .badge-name {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .badge-desc {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .badge.locked {
+            opacity: 0.4;
+        }
+
+        .badge.locked .badge-icon {
+            filter: grayscale(100%);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@azure/storage-blob@12/dist/index.min.js"></script> -->
+
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+                <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                <!-- <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div id="dashboard-report">
+            <section class="head">
+                <h1>📊 My Quiz Dashboard</h1>
+                <p>Track your amazing learning journey! 🏆✨</p>
+            </section>
+
+            <div class="user-info">
+                📧 Dashboard for: <strong id="dashboardEmail">Loading...</strong>
+                <button onclick="changeEmail()">Change Email</button>
+            </div>
+
+            <div class="stats-grid" id="overallStats"></div>
+
+            <div class="section">
+                <h2>📚 My Learning Progress</h2>
+                <div id="levelProgressSection">
+                    <div class="no-data">Start watching Abacus lessons to see progress!</div>
+                </div>
+            </div>
+            <div class="section">
+                <h2>🏅 My Badges & Rewards</h2>
+                <div class="badges-grid" id="badgesGrid">
+                    <div class="no-data">Complete quizzes to earn shiny badges! 🌟</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📜 My Quiz History</h2>
+                <div class="quiz-history" id="quizHistory">
+                    <div class="no-data">Your learning journey begins now! Start a quiz! 🚀</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🔍 Areas to Practice</h2>
+                <div class="weak-topics" id="weakTopics">
+                    <div class="no-data">Complete quizzes to get personalized tips! 🚀</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="actions">
+            <button class="action-btn btn-download" onclick="exportProgress()">📤 Download Backup</button>
+            <label class="action-btn btn-import">
+                📥 Restore Backup
+                <input type="file" accept=".json" onchange="importProgress(event)">
+            </label>
+            <button class="action-btn btn-share-pdf" onclick="shareOrExportPDF()">📲 Share / Save PDF Report</button>
+            <button class="action-btn btn-clear" onclick="clearAllProgress()">🗑️ Clear All Progress</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#about" class="float-up">About</a>
+            <a href="#feedback" class="float-up">Feedback</a>
+            <a href="#ratings" class="float-up">Ratings</a>
+            <a href="#" class="float-up">Go to top</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@azure/storage-blob@12/dist/index.min.js"></script>
+
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+
+    <script>
+        // ======================== AZURE CONFIG ========================
+        const STORAGE_ACCOUNT = "iacterraformst";
+        const CONTAINER_NAME = "quizmetadata";
+        const SAS_TOKEN = "sp=racwdl&st=2026-01-05T00:54:32Z&se=2026-01-06T09:09:32Z&sip=0.0.0.0&sv=2024-11-04&sr=c&sig=mfcqVsSFy7ZwkNYpjuHjvBDuzYEjsaYJJ4EDn4zPg%2F8%3D";
+
+        let blobServiceClient = null;
+        let containerClient = null;
+
+        // ======================== INIT AZURE ========================
+        async function initAzure() {
+            try {
+                if (typeof BlobServiceClient === 'undefined') throw new Error('Azure SDK not loaded');
+                blobServiceClient = new BlobServiceClient(`https://${STORAGE_ACCOUNT}.blob.core.windows.net${SAS_TOKEN}`);
+                containerClient = blobServiceClient.getContainerClient(CONTAINER_NAME);
+                console.log("✅ Azure Blob Storage ready!");
+                return true;
+            } catch (e) {
+                console.warn("❌ Azure failed:", e);
+                return false;
+            }
+        }
+
+        // ======================== EMAIL FOLDER ========================
+        function getUserFolder() {
+            const email = localStorage.getItem('quizUserEmail') || 'guest';
+            return `users/${email.replace(/[@.]/g, '_')}/`;
+        }
+
+        // ======================== AZURE PROFILE FUNCTIONS ========================
+        async function getProfile() {
+            try {
+                if (!containerClient) return getLocalProfile();
+
+                const folder = getUserFolder();
+                const blobName = `${folder}profile.json`;
+                const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+
+                try {
+                    const downloadResponse = await blockBlobClient.download();
+                    const blobText = await streamToText(downloadResponse.readableStreamBody);
+                    return JSON.parse(blobText);
+                } catch (err) {
+                    if (err.statusCode !== 404) console.warn("Profile download failed:", err);
+                }
+
+                // New user default profile
+                const defaultProfile = {
+                    email: localStorage.getItem('quizUserEmail') || 'guest',
+                    totalQuizzes: 0, totalCorrect: 0, totalQuestions: 0,
+                    completed: [], weakTopics: {},
+                    lastQuizDate: null, created: new Date().toISOString()
+                };
+                await saveProfile(defaultProfile);
+                return defaultProfile;
+            } catch (error) {
+                console.error("getProfile error:", error);
+                return getLocalProfile();
+            }
+        }
+
+        async function saveProfile(profile) {
+            try {
+                if (!containerClient) return saveLocalProfile(profile);
+
+                const folder = getUserFolder();
+                const blobName = `${folder}profile.json`;
+                const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+
+                profile.email = localStorage.getItem('quizUserEmail') || 'guest';
+                profile.updated = new Date().toISOString();
+
+                const jsonString = JSON.stringify(profile, null, 2);
+                const buffer = new TextEncoder().encode(jsonString);
+
+                await blockBlobClient.uploadData(buffer, {
+                    blobHTTPHeaders: { blobContentType: "application/json" }
+                });
+                console.log(`💾 Saved to Azure: ${blobName}`);
+                return true;
+            } catch (err) {
+                console.error("Azure save failed:", err);
+                saveLocalProfile(profile);
+                return false;
+            }
+        }
+
+        async function streamToText(readableStream) {
+            const reader = readableStream.getReader();
+            const decoder = new TextDecoder();
+            let result = '';
+            try {
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    result += decoder.decode(value, { stream: true });
+                }
+            } finally {
+                reader.releaseLock();
+            }
+            return result;
+        }
+
+        // LocalStorage Fallbacks
+        function getLocalProfile() {
+            const email = localStorage.getItem('quizUserEmail') || 'guest';
+            const key = `profile_${email.replace(/[@.]/g, '_')}`;
+            const stored = localStorage.getItem(key);
+            return stored ? JSON.parse(stored) : {
+                email, totalQuizzes: 0, totalCorrect: 0, totalQuestions: 0,
+                completed: [], weakTopics: {}
+            };
+        }
+
+        function saveLocalProfile(profile) {
+            const email = localStorage.getItem('quizUserEmail') || 'guest';
+            const key = `profile_${email.replace(/[@.]/g, '_')}`;
+            localStorage.setItem(key, JSON.stringify(profile));
+        }
+
+        // ======================== UI FUNCTIONS ========================
+        function updateEmailDisplay() {
+            const email = localStorage.getItem('quizUserEmail') || 'Guest User';
+            document.getElementById('dashboardEmail').textContent = email;
+        }
+
+        function changeEmail() {
+            const newEmail = prompt('Enter your email:', localStorage.getItem('quizUserEmail') || '');
+            if (newEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail.trim())) {
+                localStorage.setItem('quizUserEmail', newEmail.trim().toLowerCase());
+                alert('Email updated! Reloading...');
+                location.reload();
+            } else if (newEmail !== null) {
+                alert('Please enter a valid email address.');
+            }
+        }
+
+        // Export/Import/PDF/Clear (Azure compatible)
+        async function exportProgress() {
+            const profile = await getProfile();
+            if (profile.totalQuizzes === 0) return alert('No progress to save yet!');
+            const email = localStorage.getItem('quizUserEmail') || 'guest';
+            const data = JSON.stringify(profile, null, 2);
+            const blob = new Blob([data], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `StoryLand_Quiz_${email}_${new Date().toISOString().slice(0, 10)}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+            alert('✅ Backup downloaded!');
+        }
+
+        function importProgress(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = async (ev) => {
+                try {
+                    const profile = JSON.parse(ev.target.result);
+                    if (confirm('Replace current progress?')) {
+                        await saveProfile(profile);
+                        alert('✅ Progress restored!');
+                        location.reload();
+                    }
+                } catch {
+                    alert('❌ Invalid backup file!');
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function shareOrExportPDF() {
+            const today = new Date().toLocaleDateString('en-US', {
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+            });
+            const email = localStorage.getItem('quizUserEmail') || 'Guest';
+
+            const report = document.getElementById('dashboard-report');
+            const original = report.innerHTML;
+            const header = `
+            <div style="text-align:center; margin-bottom:40px; padding-bottom:20px; border-bottom:4px double #667eea;">
+                <h1 style="font-size:3em; color:#667eea; margin:0; font-family:'Irish Grover',cursive;">StoryLand Quiz Report 🏰✨</h1>
+                <p style="font-size:1.6em; color:#555; margin:15px 0;">Learning Progress Summary</p>
+                <p style="font-size:1.3em; color:#333;">Date: ${today}</p>
+                <p style="font-size:1.2em; color:#555;">Email: ${email}</p>
+            </div>
+        `;
+
+            report.innerHTML = header + original;
+            document.title = `StoryLand_Quiz_${new Date().toISOString().slice(0, 10)}.pdf`;
+            window.print();
+
+            setTimeout(() => {
+                report.innerHTML = original;
+                document.title = "My Quiz Dashboard 📊✨";
+            }, 1000);
+        }
+
+        async function clearAllProgress() {
+            if (!confirm('⚠️ Delete ALL quiz progress forever?')) return;
+            try {
+                if (containerClient) {
+                    const folder = getUserFolder();
+                    const blobName = `${folder}profile.json`;
+                    const blockBlobClient = containerClient.getBlockBlobClient(blobName);
+                    await blockBlobClient.deleteIfExists();
+                    console.log('🗑️ Azure profile deleted');
+                }
+                // Clean local too
+                const email = localStorage.getItem('quizUserEmail') || 'guest';
+                const key = `profile_${email.replace(/[@.]/g, '_')}`;
+                localStorage.removeItem(key);
+                alert('✅ All progress cleared!');
+                location.reload();
+            } catch (e) {
+                console.error('Clear failed:', e);
+                alert('✅ Local progress cleared (Azure delete failed)');
+                location.reload();
+            }
+        }
+
+        // ======================== DISPLAY FUNCTIONS ========================
+        const BADGES = [
+            { id: 'first_quiz', name: 'First Steps', icon: '👣', desc: 'Completed your first quiz!', unlock: p => p.totalQuizzes >= 1 },
+            { id: 'quiz_master', name: 'Quiz Master', icon: '🎓', desc: 'Completed 5 quizzes', unlock: p => p.totalQuizzes >= 5 },
+            { id: 'perfect_score', name: 'Perfect Wizard', icon: '🧙‍♂️', desc: 'Got a perfect score!', unlock: p => p.completed.some(q => q.percentage === 100) }
+        ];
+
+        async function displayBadges(profile) {
+            const grid = document.getElementById('badgesGrid');
+            if (profile.totalQuizzes === 0) {
+                grid.innerHTML = `<div class="no-data">Complete quizzes to unlock badges! 🏅</div>`;
+                return;
+            }
+            grid.innerHTML = BADGES.map(badge => {
+                const unlocked = badge.unlock(profile);
+                return `<div class="badge ${unlocked ? 'unlocked' : 'locked'}">
+                <span class="badge-icon">${badge.icon}</span>
+                <div class="badge-name">${badge.name}</div>
+                <div class="badge-desc">${badge.desc}</div>
+            </div>`;
+            }).join('');
+        }
+
+        async function displayDashboard(profile) {
+            const accuracy = profile.totalQuestions ? Math.round((profile.totalCorrect / profile.totalQuestions) * 100) : 0;
+
+            document.getElementById('overallStats').innerHTML = `
+            <div class="stat-card"><span class="stat-number">${profile.totalQuizzes}</span><div class="stat-label">Quizzes</div></div>
+            <div class="stat-card"><span class="stat-number">${accuracy}%</span><div class="stat-label">Accuracy</div></div>
+            <div class="stat-card"><span class="stat-number">${profile.totalCorrect}</span><div class="stat-label">Correct</div></div>
+            <div class="stat-card"><span class="stat-number">${profile.totalQuestions}</span><div class="stat-label">Total</div></div>
+        `;
+
+            // Weak topics
+            const weakEl = document.getElementById('weakTopics');
+            if (Object.keys(profile.weakTopics).length === 0) {
+                weakEl.innerHTML = `<div class="no-data">Great job! No weak areas! 🌟</div>`;
+            } else {
+                const sorted = Object.entries(profile.weakTopics).sort((a, b) => b[1] - a[1]);
+                weakEl.innerHTML = sorted.map(([topic, count]) =>
+                    `<div class="topic-tag">${topic} — ${count} mistake${count > 1 ? 's' : ''}</div>`
+                ).join('');
+            }
+
+            // Quiz history
+            const historyEl = document.getElementById('quizHistory');
+            if (profile.completed.length === 0) {
+                historyEl.innerHTML = `<div class="no-data">Start a quiz to see history! 🚀</div>`;
+            } else {
+                const sorted = profile.completed.sort((a, b) => new Date(b.date) - new Date(a.date));
+                historyEl.innerHTML = sorted.map(q => {
+                    const pct = q.percentage || Math.round(q.score / q.total * 100);
+                    return `<div class="quiz-card">
+                    <div class="quiz-name">${q.name}</div>
+                    <div class="quiz-date">📅 ${q.date}</div>
+                    <div>Score: <strong>${q.score}/${q.total} (${pct}%)</strong></div>
+                    <div class="score-bar"><div class="score-fill" data-width="${pct}"></div></div>
+                    ${pct === 100 ? '<small style="color:#2ecc71">✅ Perfect!</small>' : ''}
+                </div>`;
+                }).join('');
+                setTimeout(() => {
+                    document.querySelectorAll('.score-fill').forEach(bar => {
+                        bar.style.width = bar.dataset.width + '%';
+                    });
+                }, 300);
+            }
+
+            await displayBadges(profile);
+        }
+
+        // ======================== MAIN INIT ========================
+        async function initDashboard() {
+            updateEmailDisplay();
+            await initAzure();
+
+            try {
+                const profile = await getProfile();
+                await displayDashboard(profile);
+                console.log('✅ Dashboard loaded successfully');
+            } catch (error) {
+                console.error('Dashboard error:', error);
+                alert('Dashboard loaded with local fallback');
+            }
+        }
+
+        // Start when page loads
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+
+    <script>
+        //         function getProfile() {
+        //             const userEmail = localStorage.getItem('quizUserEmail') || 'guest';
+        //             const key = 'quizProfile_' + userEmail.replace(/[@.]/g, '_');
+        //             const saved = localStorage.getItem(key);
+        //             return saved ? JSON.parse(saved) : {
+        //                 totalQuizzes: 0,
+        //                 totalCorrect: 0,
+        //                 totalQuestions: 0,
+        //                 completed: [],
+        //                 weakTopics: {}
+        //             };
+        //         }
+
+        //         function saveProfile(profile) {
+        //             const userEmail = localStorage.getItem('quizUserEmail') || 'guest';
+        //             const key = 'quizProfile_' + userEmail.replace(/[@.]/g, '_');
+        //             localStorage.setItem(key, JSON.stringify(profile));
+        //         }
+
+        //         function updateEmailDisplay() {
+        //             const email = localStorage.getItem('quizUserEmail') || 'Guest User';
+        //             document.getElementById('dashboardEmail').textContent = email;
+        //         }
+
+        //         function changeEmail() {
+        //             const newEmail = prompt('Enter your email:', localStorage.getItem('quizUserEmail') || '');
+        //             if (newEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail.trim())) {
+        //                 localStorage.setItem('quizUserEmail', newEmail.trim().toLowerCase());
+        //                 alert('Email updated! Reloading...');
+        //                 location.reload();
+        //             } else if (newEmail !== null) {
+        //                 alert('Please enter a valid email address.');
+        //             }
+        //         }
+
+        //         function exportProgress() {
+        //             const profile = getProfile();
+        //             if (profile.totalQuizzes === 0) {
+        //                 alert('No progress to save yet!');
+        //                 return;
+        //             }
+        //             const email = localStorage.getItem('quizUserEmail') || 'guest';
+        //             const data = JSON.stringify(profile, null, 2);
+        //             const blob = new Blob([data], { type: 'application/json' });
+        //             const url = URL.createObjectURL(blob);
+        //             const a = document.createElement('a');
+        //             a.href = url;
+        //             a.download = `StoryLand_Quiz_Backup_${email}_${new Date().toISOString().slice(0, 10)}.json`;
+        //             a.click();
+        //             URL.revokeObjectURL(url);
+        //             alert('Backup downloaded successfully! 📥');
+        //         }
+
+        //         function importProgress(e) {
+        //             const file = e.target.files[0];
+        //             if (!file) return;
+        //             const reader = new FileReader();
+        //             reader.onload = (ev) => {
+        //                 try {
+        //                     const profile = JSON.parse(ev.target.result);
+        //                     if (confirm('This will replace all current progress. Continue?')) {
+        //                         saveProfile(profile);
+        //                         alert('Progress restored! 🎉');
+        //                         location.reload();
+        //                     }
+        //                 } catch {
+        //                     alert('Invalid backup file!');
+        //                 }
+        //             };
+        //             reader.readAsText(file);
+        //         }
+
+        //         // Your exact desired PDF format with header
+        //         function shareOrExportPDF() {
+        //             const today = new Date().toLocaleDateString('en-US', {
+        //                 weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        //             });
+        //             const email = localStorage.getItem('quizUserEmail') || 'Guest';
+
+        //             const report = document.getElementById('dashboard-report');
+        //             const original = report.innerHTML;
+
+        //             const header = `
+        //                 <div style="text-align:center; margin-bottom:40px; padding-bottom:20px; border-bottom:4px double #667eea;">
+        //                     <h1 style="font-size:3em; color:#667eea; margin:0; font-family:'Irish Grover',cursive;">StoryLand Quiz Report 🏰✨</h1>
+        //                     <p style="font-size:1.6em; color:#555; margin:15px 0;">Learning Progress Summary</p>
+        //                     <p style="font-size:1.3em; color:#333;">Date: ${today}</p>
+        //                     <p style="font-size:1.2em; color:#555;">Student Email: ${email}</p>
+        //                 </div>
+        //             `;
+
+        //             report.innerHTML = header + original;
+        //             document.title = `StoryLand_Quiz_Report_${new Date().toISOString().slice(0, 10)}.pdf`;
+
+        //             // On mobile: try to trigger share if possible, else print
+        //             if (navigator.share) {
+        //                 // Some mobile browsers support sharing text (not full page PDF directly)
+        //                 alert('Tap "Print" then choose "Save as PDF" or share from there! 📄');
+        //             }
+
+        //             window.print();
+
+        //             // Restore original content
+        //             setTimeout(() => {
+        //                 report.innerHTML = original;
+        //                 document.title = "My Quiz Dashboard 📊✨";
+        //             }, 1000);
+        //         }
+
+        //         function clearAllProgress() {
+        //             if (confirm('⚠️ This will permanently delete ALL your quiz progress. Are you sure?')) {
+        //                 const userEmail = localStorage.getItem('quizUserEmail') || 'guest';
+        //                 const key = 'quizProfile_' + userEmail.replace(/[@.]/g, '_');
+        //                 localStorage.removeItem(key);
+        //                 alert('All progress cleared.');
+        //                 location.reload();
+        //             }
+        //         }
+
+
+        //         const BADGES = [
+        //             { id: 'first_quiz', name: 'First Steps', icon: '👣', desc: 'Completed your first quiz!', unlock: profile => profile.totalQuizzes >= 1 },
+        //             { id: 'quiz_master', name: 'Quiz Master', icon: '🎓', desc: 'Completed 5 quizzes', unlock: profile => profile.totalQuizzes >= 5 },
+        //             { id: 'super_learner', name: 'Super Learner', icon: '🦸', desc: 'Completed 10 quizzes', unlock: profile => profile.totalQuizzes >= 10 },
+        //             { id: 'perfect_score', name: 'Perfect Wizard', icon: '🧙‍♂️', desc: 'Got a perfect score!', unlock: profile => profile.completed.some(q => q.percentage === 100) },
+        //             { id: 'triple_perfect', name: 'Triple Crown', icon: '👑', desc: '3 perfect scores!', unlock: profile => profile.completed.filter(q => q.percentage === 100).length >= 3 },
+        //             {
+        //                 id: 'accuracy_star', name: 'Accuracy Star', icon: '⭐', desc: '80%+ overall accuracy', unlock: profile => {
+        //                     const acc = profile.totalQuestions ? Math.round(profile.totalCorrect / profile.totalQuestions * 100) : 0;
+        //                     return acc >= 80;
+        //                 }
+        //             },
+        //             { id: 'streak_hero', name: 'Streak Hero', icon: '🔥', desc: 'Played 3 days in a row', unlock: () => false }, // Advanced: needs date tracking
+        //             { id: 'ai_explorer', name: 'AI Explorer', icon: '🤖', desc: 'Played an AI quiz', unlock: profile => profile.completed.some(q => q.id.startsWith('ai-')) },
+        //             { id: 'knowledge_king', name: 'Knowledge King', icon: '👑', desc: 'Mastered all topics', unlock: profile => Object.keys(profile.weakTopics || {}).length === 0 && profile.totalQuizzes >= 5 },
+        //             { id: 'abacus_master', name: 'Abacus Master', icon: '🧮', desc: 'Completed an Abacus quiz!', unlock: profile => profile.completed.some(q => q.id === 'abacus-intro') },
+        //             { id: 'early_bird', name: 'Early Bird', icon: '🌅', desc: 'Played a quiz before 9 AM', unlock: () => false }, // Optional
+        //         ];
+
+        //         function displayBadges() {
+        //             const profile = getProfile();
+        //             const grid = document.getElementById('badgesGrid');
+
+        //             if (profile.totalQuizzes === 0) {
+        //                 grid.innerHTML = `<div class="no-data">Complete quizzes to unlock shiny badges! 🏅</div>`;
+        //                 return;
+        //             }
+
+        //             grid.innerHTML = BADGES.map(badge => {
+        //                 const unlocked = badge.unlock(profile);
+        //                 return `
+        //             <div class="badge ${unlocked ? 'unlocked' : 'locked'}">
+        //                 <span class="badge-icon">${badge.icon}</span>
+        //                 <div class="badge-name">${badge.name}</div>
+        //                 <div class="badge-desc">${badge.desc}</div>
+        //             </div>
+        //         `;
+        //             }).join('');
+
+        //             // Play sound & animation for newly unlocked badges
+        //             const unlockedBadges = BADGES.filter(b => b.unlock(profile));
+        //             if (unlockedBadges.length > 0) {
+        //                 // Optional: play reward sound
+        //                 new Audio('https://assets.mixkit.co/sfx/preview/mixkit-achievement-bell-600.mp3').play().catch(() => { });
+        //             }
+        //         }
+
+
+
+
+        //         function displayDashboard() {
+        //             const profile = getProfile();
+        //             const accuracy = profile.totalQuestions ? Math.round((profile.totalCorrect / profile.totalQuestions) * 100) : 0;
+
+        //             document.getElementById('overallStats').innerHTML = `
+        //                 <div class="stat-card"><span class="stat-number">${profile.totalQuizzes}</span><div class="stat-label">Quizzes Completed</div></div>
+        //                 <div class="stat-card"><span class="stat-number">${accuracy}%</span><div class="stat-label">Overall Accuracy</div></div>
+        //                 <div class="stat-card"><span class="stat-number">${profile.totalCorrect}</span><div class="stat-label">Correct Answers</div></div>
+        //                 <div class="stat-card"><span class="stat-number">${profile.totalQuestions}</span><div class="stat-label">Questions Answered</div></div>
+        //             `;
+
+        //             const weakEl = document.getElementById('weakTopics');
+        //             if (Object.keys(profile.weakTopics).length === 0) {
+        //                 weakEl.innerHTML = `<div class="no-data">You're doing fantastic in every topic! 🌟 Keep shining!</div>`;
+        //             } else {
+        //                 const sorted = Object.entries(profile.weakTopics).sort((a, b) => b[1] - a[1]);
+        //                 weakEl.innerHTML = sorted.map(([topic, count]) =>
+        //                     `<div class="topic-tag">${topic} — ${count} mistake${count > 1 ? 's' : ''}</div>`
+        //                 ).join('');
+        //             }
+
+        //             const historyEl = document.getElementById('quizHistory');
+        //             if (profile.completed.length === 0) {
+        //                 historyEl.innerHTML = `<div class="no-data">Your learning journey begins now! Start a quiz! 🚀</div>`;
+        //             } else {
+        //                 const sorted = profile.completed.sort((a, b) => new Date(b.date) - new Date(a.date));
+        //                 historyEl.innerHTML = sorted.map(q => {
+        //                     const pct = q.percentage || Math.round(q.score / q.total * 100);
+        //                     const isPerfect = pct === 100;
+        //                     return `<div class="quiz-card">
+        //                         <div class="quiz-name">${q.name}</div>
+        //                         <div class="quiz-date">📅 ${q.date}</div>
+        //                         <div>Score: <strong>${q.score}/${q.total} (${pct}%)</strong></div>
+        //                         <div class="score-bar"><div class="score-fill" data-width="${pct}"></div></div>
+        //                         ${isPerfect ? '<small style="color:#2ecc71">✅ Perfect!</small>' : `<small style="color:#e74c3c">⚠️ ${q.wrongCount || (q.total - q.score)} incorrect</small>`}
+        //                     </div>`;
+        //                 }).join('');
+
+        //                 setTimeout(() => {
+        //                     document.querySelectorAll('.score-fill').forEach(bar => {
+        //                         bar.style.width = bar.dataset.width + '%';
+        //                     });
+        //                 }, 300);
+        //             }
+
+        //             displayBadges();
+        //         }
+
+
+        //         function displayLevelProgress() {
+        //             const profile = getProfile();
+        //             const section = document.getElementById('levelProgressSection');
+
+        //             if (!profile.levels || Object.keys(profile.levels).length === 0) {
+        //                 section.innerHTML = `<div class="no-data">Start watching lessons to track progress! 🚀</div>`;
+        //                 return;
+        //             }
+
+        //             section.innerHTML = Object.values(profile.levels).map(level => `
+        //         <div class="quiz-card">
+        //             <div class="quiz-name">${level.name}</div>
+        //             <div>Lessons Watched: <strong>${level.watched}/${level.totalLessons}</strong></div>
+        //             ${level.quiz ? '<div>✅ Quiz Completed!</div>' : '<div>⏳ Quiz Pending</div>'}
+        //             ${level.completed ? '<div style="color:#2ecc71; font-weight:bold;">🎉 LEVEL COMPLETED! 🏆</div>' : ''}
+        //         </div>
+        //     `).join('');
+        //         }
+
+        //         // Call it in displayDashboard()
+        //         displayLevelProgress();
+
+        //         document.addEventListener('DOMContentLoaded', () => {
+        //             updateEmailDisplay();
+        //             displayDashboard();
+        //         });
+    </script>
+</body>
+
+</html>

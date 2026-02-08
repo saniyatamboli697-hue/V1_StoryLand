@@ -1,0 +1,101 @@
+{
+    "id": "science-2025",
+    "title": "Science Adventure Quiz 🔬",
+    "time": 120,
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "What is the chemical symbol for Water?",
+            "options": [
+                "H2O",
+                "O2",
+                "CO2",
+                "NaCl"
+            ],
+            "correct": 0,
+            "topic": "Chemistry"
+        },
+        {
+            "type": "truefalse",
+            "question": "Plants make their own food through photosynthesis. 🌱",
+            "correct": true,
+            "topic": "Biology"
+        },
+        {
+            "type": "fillblank",
+            "question": "The planet closest to the Sun is ____.",
+            "answer": [
+                "mercury"
+            ],
+            "topic": "Space"
+        },
+        {
+            "type": "imageid",
+            "question": "What is this scientific tool called? 🔬",
+            "image": "https://www.labkafe.com/storage/blog/microscope/care/compound-microscope-student-1.jpg",
+            "answer": [
+                "microscope"
+            ],
+            "topic": "Tools"
+        },
+        {
+            "type": "mcq",
+            "question": "Which of these is a renewable energy source?",
+            "options": [
+                "Coal",
+                "Oil",
+                "Solar Power",
+                "Natural Gas"
+            ],
+            "correct": 2,
+            "topic": "Energy"
+        },
+        {
+            "type": "fillblank",
+            "question": "The force that pulls objects toward Earth is called ____.",
+            "answer": [
+                "gravity"
+            ],
+            "topic": "Physics"
+        },
+        {
+            "type": "truefalse",
+            "question": "Sound travels faster in water than in air. 🌊",
+            "correct": true,
+            "topic": "Physics"
+        },
+        {
+            "type": "mcq",
+            "question": "How many bones are in the adult human body?",
+            "options": [
+                "206",
+                "180",
+                "250",
+                "150"
+            ],
+            "correct": 0,
+            "topic": "Biology"
+        },
+        {
+            "type": "imageid",
+            "question": "Name this planet with rings! 🪐",
+            "image": "https://t4.ftcdn.net/jpg/04/77/73/71/360_F_477737165_oW9d7b1nmPHtYJdxiBK7rSAiztUuDvyn.jpg",
+            "answer": [
+                "saturn"
+            ],
+            "topic": "Space"
+        },
+        {
+            "type": "mcq",
+            "question": "What gas do plants absorb from the air?",
+            "options": [
+                "Oxygen",
+                "Nitrogen",
+                "Carbon Dioxide",
+                "Hydrogen"
+            ],
+            "correct": 2,
+            "topic": "Biology"
+        }
+    ]
+}

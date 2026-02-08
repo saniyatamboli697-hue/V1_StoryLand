@@ -1,0 +1,102 @@
+{
+    "id": "geography-2026",
+    "title": "Geography Explorer Quiz 🌍🗺️",
+    "time": 120,
+    "questions": [
+        {
+            "type": "mcq",
+            "question": "Which is the largest continent by land area?",
+            "options": [
+                "Africa",
+                "Asia",
+                "North America",
+                "Antarctica"
+            ],
+            "correct": 1,
+            "topic": "Continents"
+        },
+        {
+            "type": "truefalse",
+            "question": "The Amazon Rainforest is the largest rainforest in the world. 🌳",
+            "correct": true,
+            "topic": "Forests"
+        },
+        {
+            "type": "fillblank",
+            "question": "The capital city of Australia is ____.",
+            "answer": [
+                "canberra"
+            ],
+            "topic": "Capitals"
+        },
+        {
+            "type": "imageid",
+            "question": "Which famous landmark is this? 🗼",
+            "image": "https://images.unsplash.com/photo-1570097703229-b195d6dd291f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZWlmZmVsJTIwdG93ZXJ8ZW58MHx8MHx8fDA%3D",
+            "answer": [
+                "eiffel tower",
+                "eiffel"
+            ],
+            "topic": "Landmarks"
+        },
+        {
+            "type": "mcq",
+            "question": "Which ocean is the largest?",
+            "options": [
+                "Atlantic",
+                "Indian",
+                "Arctic",
+                "Pacific"
+            ],
+            "correct": 3,
+            "topic": "Oceans"
+        },
+        {
+            "type": "fillblank",
+            "question": "The longest river in the world is the ____.",
+            "answer": [
+                "nile"
+            ],
+            "topic": "Rivers"
+        },
+        {
+            "type": "truefalse",
+            "question": "Mount Everest is the tallest mountain on Earth. 🏔️",
+            "correct": true,
+            "topic": "Mountains"
+        },
+        {
+            "type": "mcq",
+            "question": "Which country has the most deserts?",
+            "options": [
+                "Australia",
+                "Egypt",
+                "Saudi Arabia",
+                "Antarctica"
+            ],
+            "correct": 3,
+            "topic": "Deserts"
+        },
+        {
+            "type": "imageid",
+            "question": "Name this natural wonder! 🏞️",
+            "image": "https://sevennaturalwonders.org/wp-content/uploads/2023/11/Grand-Canyon-panoramic-of-horshoe-bend.jpg",
+            "answer": [
+                "grand canyon"
+            ],
+            "topic": "Wonders"
+        },
+        {
+            "type": "mcq",
+            "question": "Which country is known as the Land of the Rising Sun?",
+            "options": [
+                "China",
+                "Japan",
+                "Thailand",
+                "South Korea"
+            ],
+            "correct": 1,
+            "topic": "Countries"
+        }
+    ]
+}
