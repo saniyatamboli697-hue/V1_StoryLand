@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Think About It Stories</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css"> <!-- Your existing styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&family=Comic+Neue&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Dreamy Thinking Styles – add to Stories.css or keep here! */
+        .video-gallery {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #e6e6fa, #d8bfd8);
+            /* Lavender calm! */
+        }
+
+        .video-gallery h2 {
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2.8rem;
+            background: linear-gradient(45deg, #9370db, #ba55d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: white;
+        }
+
+        .video-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(186, 85, 211, 0.4);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 5px solid #ba55d3;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .video-card h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2rem;
+            color: #9370db;
+        }
+
+        .video-card p {
+            padding: 0 1.5rem 2rem;
+            font-family: 'Comic Neue', sans-serif;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Thoughtful Modal */
+        #videoModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #videoModal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+        }
+
+        .modal-content video {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 0 60px rgba(186, 85, 211, 0.8);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            font-size: 3.5rem;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 15px mediumorchid;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navbar (unchanged) -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+                <ul>
+                    <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                    <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                    <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                    <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                    <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                    <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                    <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (thoughtful update!) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Welcome to Think About It Stories!</h1>
+            <p class="fade-in">Pause, wonder, and discover deep lessons that make you smarter and kinder! 💭🌟</p>
+            <button class="cta-btn rotate-hover">Spark Your Thoughts ✨</button>
+        </div>
+        <div class="floating-particles"></div>
+    </section>
+
+    <!-- Reflective Video Gallery! -->
+    <section class="video-gallery">
+        <h2 class="bounce-in">Stories to Ponder & Grow! 🧠💡</h2>
+        <div class="video-grid">
+
+            <!-- Time is Precious -->
+            <div class="video-card" data-video="./Stories/Time_is_Precious.mp4">
+                <img src="https://www.shutterstock.com/image-vector/funny-alarm-clock-cartoon-character-260nw-2663500661.jpg"
+                    alt="Cute cartoon clock character reminding about time with thoughtful kid" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Time is Precious ⏰</h3>
+                <p>Learn why every moment counts and how to cherish it wisely! 🌈🕰️</p>
+            </div>
+
+            <!-- The Cap Seller & Monkeys -->
+            <div class="video-card" data-video="./Stories/The_Cap_Seller_and_Monkey.mp4">
+                <img src="https://rjappstudio.in/wp-content/uploads/2025/06/cap-seller-and-monkeys-story-illustration.jpg"
+                    alt="Classic cap seller outsmarting playful monkeys in tree" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>The Cap Seller & Monkeys 🎩🐒</h3>
+                <p>A clever trick teaches us about thinking smart in tricky times! 🐵🤔</p>
+            </div>
+            <!-- Power of Thinking Big (poor boy dreams success motivational!) -->
+            <div class="video-card" data-video="./Stories/Thinking_Big_Poor_Boy.mp4">
+                <img src="https://i.ytimg.com/vi/ywgL0ws_4pY/maxresdefault.jpg"
+                    alt="Inspirational cartoon boy with empty pockets dreaming big success lightbulb" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Power of Thinking Big</h3>
+                <p>A poor boy with empty pockets dreams huge—and changes his life forever with positive mindset! 🌟💡
+                </p>
+            </div>
+            <!-- Add more thoughtful tales here! -->
+        </div>
+    </section>
+
+    <!-- Single Reusable Modal -->
+    <div id="videoModal">
+        <div class="modal-content">
+            <span class="close-btn">✖</span>
+            <video id="storyVideo" controls autoplay playsinline preload="auto">
+                <source src="" type="video/mp4">
+                Hmm... Your browser needs a thinking cap to play videos! 🧢🪄
+            </video>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+
+    <!-- Bubbles -->
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <script src="Stories.js"></script>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+</body>
+
+</html>

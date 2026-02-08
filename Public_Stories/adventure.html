@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Adventure Stories</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/x-icon">
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css"> <!-- Your existing styles -->
+    <link rel="stylesheet" href="Video_Play_CSS.css">
+
+    <style>
+        /* Epic Adventure Styles – add to Stories.css or keep inline! */
+        .video-gallery {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #d4fc79, #96e6a1);
+        }
+
+        .video-gallery h2 {
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2.8rem;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: white;
+        }
+
+        .video-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(255, 126, 95, 0.4);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 5px solid #ff7e5f;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .video-card h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2rem;
+            color: #ff512f;
+        }
+
+        .video-card p {
+            padding: 0 1.5rem 2rem;
+            font-family: 'Comic Neue', sans-serif;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Modal */
+        #videoModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #videoModal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+        }
+
+        .modal-content video {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 0 60px rgba(255, 126, 95, 0.8);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            font-size: 3.5rem;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 15px orange;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navbar (unchanged) -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+                <ul>
+                    <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                    <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                    <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                    <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                    <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                    <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                    <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (adventure-themed update!) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Welcome to Adventure Stories!</h1>
+            <p class="fade-in">Grab your backpack and dive into thrilling quests, hidden treasures, and brave heroes!
+                🧭✨</p>
+            <button class="cta-btn rotate-hover">Embark on Adventure! 🗺️</button>
+        </div>
+        <div class="floating-particles"></div>
+    </section>
+
+    <!-- Thrilling Adventure Video Gallery! -->
+    <section class="video-gallery">
+        <h2 class="bounce-in">Epic Adventures Await! 🌴🔥</h2>
+        <div class="video-grid">
+
+            <!-- Adventure Story -->
+            <div class="video-card" data-video="./Stories/Adventure%20story.mp4">
+                <img src="https://thumbs.dreamstime.com/b/treasure-pirate-chest-full-gold-coins-gems-crown-sword-jungle-tropical-forest-island-palms-different-exotic-plants-180744645.jpg"
+                    alt="Jungle treasure chest with gold and gems adventure" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>The Great Jungle Quest</h3>
+                <p>Explore hidden treasures in a wild jungle full of surprises! 🌴💎</p>
+            </div>
+
+            <!-- Adventure -->
+            <div class="video-card" data-video="./Stories/Adventure.mp4">
+                <img src="https://thumbs.dreamstime.com/b/kids-adventure-trip-vector-illustration-happy-39776264.jpg"
+                    alt="Kids on exciting mountain climbing treasure hunt" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Real Treasure </h3>
+                <p>Climb peaks, solve riddles, and find the ultimate prize! ⛰️🗝️</p>
+            </div>
+
+            <!-- Magic Adventure -->
+            <div class="video-card" data-video="./Stories/magic.mp4">
+                <img src="https://thumbs.dreamstime.com/b/whimsical-cartoon-illustration-fantasy-castle-sky-rainbow-green-dragon-young-wizards-casting-spells-421873298.jpg"
+                    alt="Magical castle with dragon and wizards adventure" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Enchanted Kingdom Magic</h3>
+                <p> spells, and a kingdom full of wonder! 🏰</p>
+            </div>
+            <!-- Gulliver's Travels (tiny & giant worlds adventure!) -->
+            <div class="video-card" data-video="./Stories/Gullivers_Travels.mp4">
+                <img src="https://www.shutterstock.com/image-illustration/gulliver-lies-bound-by-ropes-260nw-1780557635.jpg"
+                    alt="Cute cartoon Gulliver tied by tiny Lilliputians in classic adventure" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Gulliver's Travels</h3>
+                <p>A shipwrecked explorer discovers lands of tiny people and huge giants—full of surprises! 🚢🗺️</p>
+            </div>
+            <!-- Jack and the Beanstalk (giant adventure climb!) -->
+            <div class="video-card" data-video="./Stories/Jack_and_the_Beanstalk.mp4">
+                <img src="https://i.ytimg.com/vi/fT4_uHEoNCg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDLU4NbzZTy1TaFadSvMyc-chARzA"
+                    alt="Brave Jack climbing enormous magic beanstalk to giant castle in clouds" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Jack and the Beanstalk</h3>
+                <p>A poor boy trades his cow for magic beans—and climbs a huge stalk to a giant's castle full of
+                    treasure! 🌱🏰</p>
+            </div>
+
+            <!-- Robinson Crusoe (desert island survival adventure!) -->
+            <div class="video-card" data-video="./Stories/Robinson_Crusoe.mp4">
+                <img src="https://www.solarnavigator.net/books/books_images/Robinson_Crusoe_Animation_Film3D.jpg"
+                    alt="Cute cartoon Robinson Crusoe on tropical island with parrot and shipwreck" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Robinson Crusoe</h3>
+                <p>A shipwrecked sailor survives alone on a desert island—building, exploring, and discovering
+                    footprints! 🏖️🦜</p>
+            </div>
+            <!-- Add more adventures here! -->
+        </div>
+    </section>
+
+    <!-- Single Reusable Modal -->
+    <div id="videoModal">
+        <div class="modal-content">
+            <span class="close-btn">✖️</span>
+            <video id="storyVideo" controls autoplay playsinline preload="auto">
+                <source src="" type="video/mp4">
+                Whoosh! Your browser needs adventure fuel to play videos 🏕️
+            </video>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+
+    <!-- Bubbles -->
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <script src="Stories.js"></script>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+</body>
+
+</html>

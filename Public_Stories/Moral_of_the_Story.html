@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Moral Stories</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css">
+    <link rel="shortcut icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/x-icon">
+    <!-- Keep your existing styles -->
+
+
+    <style>
+        /* Enchanted styles – add to Stories.css or keep here! */
+        .video-gallery {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #e0f7fa, #ffeef8);
+        }
+
+        .video-gallery h2 {
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2.8rem;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: white;
+        }
+
+        .video-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 25px 50px rgba(80, 200, 255, 0.4);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 5px solid #4facfe;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .video-card h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2rem;
+            color: #00bfff;
+        }
+
+        .video-card p {
+            padding: 0 1.5rem 2rem;
+            font-family: 'Comic Neue', sans-serif;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Modal Magic */
+        #videoModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #videoModal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+        }
+
+        .modal-content video {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 0 60px rgba(80, 200, 255, 0.8);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            font-size: 3.5rem;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 15px cyan;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navbar (unchanged) -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+
+                <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (updated for moral theme!) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Welcome to Moral Stories!</h1>
+            <p class="fade-in">Learn valuable lessons through fun adventures—kindness, honesty, and more await! 🌟</p>
+            <button class="cta-btn rotate-hover">Discover Wisdom ✨</button>
+        </div>
+        <div class="floating-particles"></div>
+    </section>
+
+    <!-- Magical Moral Video Gallery! -->
+    <section class="video-gallery">
+        <h2 class="bounce-in">Heartwarming Moral Lessons! 📖💖</span></h2>
+        <div class="video-grid">
+
+            <!-- Sharing is Caring -->
+            <div class="video-card" data-video="./Stories/Sharing_is_caring.mp4">
+                <img src="https://i.ytimg.com/vi/nTEbDafUNUQ/maxresdefault.jpg"
+                    alt="Cute kids sharing toys and smiling happily" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Sharing is Caring</h3>
+                <p>Discover how sharing brings joy and makes the best friends! 🤗❤️</p>
+            </div>
+
+            <!-- Honesty is the Best Policy -->
+            <div class="video-card" data-video="./Stories/Honesty_is_the_best.mp4">
+                <img src="https://cdn.firstcry.com/education/2023/02/31090932/Honesty-Is-The-Best-Policy-Story.jpg"
+                    alt="Boy returning a lost axe honestly with fairy reward" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Honesty is the Best Policy</h3>
+                <p>Truth always shines brightest—like a golden reward! 🌟🪓</p>
+            </div>
+
+            <!-- Believe in Yourself -->
+            <div class="video-card" data-video="./Stories/Believe_in_Yourself.mp4">
+                <img src="https://i.ytimg.com/vi/FaoevMkMu1M/maxresdefault.jpg"
+                    alt="Cute animals encouraging a friend to believe in themselves" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Believe in Yourself</h3>
+                <p>You can achieve anything with confidence and courage! 🦁💪</p>
+            </div>
+
+            <!-- Homework (Importance of Responsibility) -->
+            <div class="video-card" data-video="./Stories/Homework.mp4">
+                <img src="https://i.ytimg.com/vi/ddTiAKS-icw/maxresdefault.jpg"
+                    alt="Happy kids learning and doing homework with fun" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>The Magic of Homework</h3>
+                <p>Working in time and taking on responsibility leads to amazing life! 📚✨</p>
+            </div>
+
+            <!-- Add more moral stories here! -->
+        </div>
+    </section>
+
+    <!-- Single Reusable Modal -->
+    <div id="videoModal">
+        <div class="modal-content">
+            <span class="close-btn">✖</span>
+            <video id="storyVideo" controls autoplay playsinline preload="auto">
+                <source src="" type="video/mp4">
+                Oops! Your browser needs a sprinkle of magic to play videos 🪄
+            </video>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+
+    <!-- Bubbles -->
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+
+    <script src="Stories.js"></script>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Stories</title>
+    <link rel="shortcut icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css"> <!-- Your existing styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&family=Comic+Neue&display=swap"
+        rel="stylesheet">
+    <style>
+        /* Zoo-tastic Animal Styles – paste into Stories.css for perfection! */
+        .video-gallery {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #fff176, #a5d6a7);
+            /* Sunny meadow vibes! */
+        }
+
+        .video-gallery h2 {
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2.8rem;
+            background: linear-gradient(45deg, #ffca28, #4caf50);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 35px;
+            /* Extra round for cuddly feel! */
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: white;
+        }
+
+        .video-card:hover {
+            transform: translateY(-15px) scale(1.05) rotate(1deg);
+            /* Playful wobble! */
+            box-shadow: 0 25px 50px rgba(255, 193, 7, 0.4);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 6px solid #ffca28;
+            /* Sunny border! */
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+            animation: bounce 1.2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: scale(1) translateY(0);
+            }
+
+            40% {
+                transform: scale(1.1) translateY(-10px);
+            }
+
+            60% {
+                transform: scale(1.05) translateY(-5px);
+            }
+        }
+
+        .video-card h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2.1rem;
+            color: #ff8f00;
+            /* Warm animal orange! */
+        }
+
+        .video-card p {
+            padding: 0 1.5rem 2rem;
+            font-family: 'Comic Neue', sans-serif;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Pawsome Modal */
+        #videoModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #videoModal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 95%;
+            max-height: 95%;
+        }
+
+        .modal-content video {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 0 60px rgba(255, 202, 40, 0.8);
+            /* Golden glow! */
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -60px;
+            right: 0;
+            font-size: 3.5rem;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 15px #ffca28;
+        }
+
+        /* Mobile paw-fect! */
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .video-gallery h2 {
+                font-size: 2.2rem;
+            }
+
+            .play-overlay {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navbar (your castle stays the same!) -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+                <ul>
+                    <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                    <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                    <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                    <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                    <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                    <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                    <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <!-- Hero (Animal Adventure Update!) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Welcome to Animal Stories! 🐾</h1>
+            <p class="fade-in">Join furry friends on wild adventures, learn animal secrets, and giggle with the cutest
+                critters! 🐻🦊</p>
+            <button class="cta-btn rotate-hover">Roar into Fun! 🐯✨</button>
+        </div>
+        <div class="floating-particles"></div>
+    </section>
+
+    <!-- Wild Animal Video Zoo! -->
+    <section class="video-gallery">
+        <h2 class="bounce-in">Furry Friends & Wild Tales! 🦁🐰</h2>
+        <div class="video-grid">
+
+            <!-- Puppy's Big Day -->
+            <div class="video-card" data-video="./Stories/Animal.mp4">
+                <img src="https://thumbs.dreamstime.com/b/playful-cartoon-puppy-chasing-butterflies-summer-meadow-charming-cartoon-illustration-cute-brown-puppy-joyfully-411634466.jpg"
+                    alt="Playful cartoon puppy chasing butterflies in a sunny meadow" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>The Greedy Dog 🐕</h3>
+                <p>A fluffy pup discovers an extra bone in the water! 🐾</p>
+            </div>
+
+            <!-- Fox's Forest Secret -->
+            <div class="video-card" data-video="./Stories/Animal1.mp4">
+                <img src="https://images.stockcake.com/public/c/a/7/ca7dc816-fa4d-41fd-9f01-3067a26118c4_large/cosmic-crystal-turtle-stockcake.jpg"
+                    alt="Cute cartoon red fox chatting with rabbit and squirrels in a vibrant forest" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Oliver's Magical Shell 🐢</h3>
+                <p>When Oliver discovers that his beautiful shell holds mysterious powers ✨</p>
+            </div>
+
+            <!-- Bunny Hop Party -->
+            <div class="video-card" data-video="./Stories/Animal3.mp4">
+                <img src="https://thumbs.dreamstime.com/b/cute-bunny-family-gathering-grass-sunset-creating-warm-easter-vibe-scene-shows-small-rabbits-surrounded-easter-eggs-422047759.jpg"
+                    alt="Adorable bunny family partying in a flower field at sunset" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Bunny Magical World 🐰</h3>
+                <p>Bunny discovers the talketive animal's world ! 💬💬</p>
+            </div>
+
+            <!-- Lion Cub's Roar -->
+            <div class="video-card" data-video="./Stories/Animal2.mp4">
+                <img src="https://thumbs.dreamstime.com/b/cartoon-cute-lion-baby-illustration-playful-expression-perfect-children-s-themes-nursery-decor-fun-animal-341791232.jpg"
+                    alt="Cute cartoon lion cub with playful roar on the savanna" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Lion Cub's Roar 🦁</h3>
+                <p>A tiny lion learns to roar big on the golden savanna! ☀️🔥</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- One Magic Animal Modal (This was missing – add it here!) -->
+    <div id="videoModal">
+        <div class="modal-content">
+            <span class="close-btn">✖</span>
+            <video id="storyVideo" controls autoplay playsinline preload="auto">
+                <source src="" type="video/mp4">
+                Rawr! Your browser needs animal snacks to play videos! 🐾🪄
+            </video>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+
+    <!-- Bubbly Clouds -->
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+
+    <script src="Stories.js"></script>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+</body>
+
+</html>

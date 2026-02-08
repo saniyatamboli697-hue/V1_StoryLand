@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StoryLand - Magical Stories</title>
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css">
+    <link rel="shortcut icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/x-icon">
+    <style>
+        .story-categories {
+            padding: 4rem 2rem;
+            background: radial-gradient(circle at top left, hsla(184, 85%, 48%, 0.805), hsla(85, 79%, 59%, 0.788));
+            text-align: center;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            justify-items: center;
+        }
+
+        .story-card {
+            width: 100%;
+            max-width: 300px;
+            height: 100%;
+            border-radius: 30px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(230, 249, 137, 0.089);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+        }
+
+        .story-card:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            padding: 4px;
+            background: linear-gradient(45deg, #ff9de2, #8ec5ff, #ffd86b);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .story-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .story-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .card-text {
+            width: 100%;
+            height: auto;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .card-text h2 {
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2rem;
+            color: #ffd86b;
+            margin: 0 0 0.5rem;
+            text-shadow: 0 0 8px rgba(255, 216, 107, 0.173);
+        }
+
+        .card-text p {
+            font-size: 1.2rem;
+            color: #e0f2ff;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .story-card a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+
+                <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                <li><a href="../Own_Stories/Own_Stories_Index.html">Own Stories</a></li>
+                <!-- <li><a href="../Own_Lib/Own_Lib_Index.html">Own Library</a></li> -->
+                <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Pick Your Magical Story Category!</h1>
+            <p class="fade-in">“Step into a world of endless stories where adventures begin and imagination never ends!”
+            </p>
+            <button class="cta-btn rotate-hover">Start Your Adventure ✨</button>
+        </div>
+        <div class="floating-particles"></div>
+    </section>
+
+    <!-- Story Categories Grid -->
+    <section class="story-categories" id="stories">
+        <h2 class="gradient-text">Explore Our Enchanting Story Worlds!</h2>
+        <div class="card-grid">
+            <div class="story-card">
+                <a href="Fairy_Tales.html">
+                    <img src="https://thumbs.dreamstime.com/b/fairy-reading-enchanted-book-surrounded-magical-creatures-lush-forest-library-fairy-reading-enchanted-book-surrounded-409290798.jpg"
+                        alt="Magical fairy in enchanted forest">
+                    <div class="card-text">
+                        <h2>Fairy Tales</h2>
+                        <p>Magical adventures with fairies and enchanted forests. 🧚‍♀️✨</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="story-card">
+                <a href="adventure.html">
+                    <img src="https://thumbs.dreamstime.com/b/adorable-boy-explorer-compass-cartoon-fun-adventure-outdoor-exploration-kid-character-image-generated-using-ai-tool-407028533.jpg"
+                        alt="Brave kid explorer on adventure">
+                    <div class="card-text">
+                        <h2>Adventures</h2>
+                        <p>Exciting quests and daring journeys await! 🗺️🏔️</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="story-card">
+                <a href="Animal.html">
+                    <img src="https://img.freepik.com/free-vector/adorable-animals-forest-gathering_1308-179390.jpg"
+                        alt="Cute group of forest animals">
+                    <div class="card-text">
+                        <h2>Animal Stories</h2>
+                        <p>Meet playful creatures in wild and wonderful tales. 🐾🌳</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="story-card">
+                <a href="Superhero.html">
+                    <img src="https://thumbs.dreamstime.com/b/superhero-kid-flying-isolated-white-background-eps-file-available-31010270.jpg"
+                        alt="Superhero kid flying with cape">
+                    <div class="card-text">
+                        <h2>Superhero Stories</h2>
+                        <p>Fly into action with brave heroes and epic powers! 🦸‍♂️💥</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="story-card">
+                <a href="Think_about_it.html">
+                    <img src="https://thumbs.dreamstime.com/b/vector-illustration-cartoon-child-thinking-thoughtful-boy-confused-boy-boy-illustrated-bulb-above-his-head-vector-188842597.jpg"
+                        alt="Curious child thinking with lightbulb">
+                    <div class="card-text">
+                        <h2>Think About It</h2>
+                        <p>Stories that spark curiosity and thoughtful questions. 💭🌟</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="story-card">
+                <a href="Moral_of_the_Story.html">
+                    <img src="https://i.ytimg.com/vi/cHIcn6vu5zM/hq720.jpg" alt="Kids learning honesty and kindness">
+                    <div class="card-text">
+                        <h2>Moral of the Story</h2>
+                        <p>Lessons of kindness, honesty, and courage. ❤️🛡️</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Generate Story -->
+    <section class="generate-story" id="generate">
+        <h2 class="gradient-text">Create Your Own Story!</h2>
+        <a href="../Own_Stories/Own_Stories_Index.html">
+            <button class="cta-btn rotate-hover">Generate Magic! 🪄</button>
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#about" class="float-up"><img
+                    src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About</a>
+            <a href="#feedback" class="float-up"><img
+                    src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback</a>
+            <a href="#ratings" class="float-up"><img
+                    src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings</a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+    </footer>
+
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Stories</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css"> <!-- Your existing styles -->
+
+    <link rel="icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/x-icon">
+    <style>
+        /* Quick new styles – add these to your Stories.css for the full magic! */
+        .video-gallery {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffeef8, #ff73ec);
+        }
+
+        .video-gallery h2 {
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, #ff6ec4, #7873f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background: white;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3);
+        }
+
+        .video-card img {
+            width: 100%;
+            height: 260px;
+            /* FIXED height for all images */
+            object-fit: cover;
+            /* Crop instead of stretch */
+            display: block;
+        }
+
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .video-card h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-family: 'Princess Sofia', cursive;
+            font-size: 1.8rem;
+            color: #ff6ec4;
+        }
+
+        .video-card p {
+            padding: 0 1.5rem 1.5rem;
+            font-family: 'Comic Neue', sans-serif;
+            color: #555;
+        }
+
+        /* Modal Styles */
+        #videoModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #videoModal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content video {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(255, 182, 193, 0.8);
+        }
+
+        .close-btn {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            font-size: 3rem;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: 0 0 10px pink;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navbar (unchanged) -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+
+                <ul>
+                    <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                    <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                    <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                    <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                    <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                    <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                    <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section (unchanged) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Welcome to Watch Time Stories!</h1>
+            <p class="fade-in">Watch amazing stories come alive and travel to a world full of magic and smiles!</p>
+            <button class="cta-btn rotate-hover">Start Your Adventure ✨</button>
+        </div>
+        <div class="floating-particles"></div>
+    </section>
+
+    <!-- New Magical Video Gallery! -->
+    <section class="video-gallery">
+        <h2 class="bounce-in">Magical Watch Time Stories! 📺✨</h2>
+        <div class="video-grid">
+            <!-- Rumpelstiltskin -->
+            <div class="video-card" data-video="./Stories/Rumpelstiltskin.mp4">
+                <img src="https://www.creativefabrica.com/wp-content/uploads/2019/05/Rumpelstiltskin-Fairy-Tale-by-Keepinitkawaiidesign.png"
+                    alt="Cute Rumpelstiltskin spinning gold illustration">
+                <div class="play-overlay">▶</div>
+                <h3>Rumpelstiltskin</h3>
+                <p>A clever miller's daughter and a mysterious little man who spins straw into gold... 🧙‍♂️✨</p>
+            </div>
+
+            <!-- Cinderella -->
+            <div class="video-card" data-video="./Stories/Cinderella.mp4">
+                <img src="https://w0.peakpx.com/wallpaper/262/840/HD-wallpaper-cinderella-cinderella-movie-fairy-tale-cartoon-classic-princess-disney-thumbnail.jpg"
+                    alt="Beautiful Cinderella with glass slipper and castle">
+                <div class="play-overlay">▶</div>
+                <h3>Cinderella</h3>
+                <p>Glass slippers, a fairy godmother, and a dream come true at the royal ball! 👠🎉</p>
+            </div>
+
+            <!-- Thumbelina -->
+            <div class="video-card" data-video="./Stories/ThumbelinaStory.mp4">
+                <img src="https://t3.ftcdn.net/jpg/05/75/28/96/360_F_575289674_1fhz03qCxCTfg97cjLr6mEirl3xOuDOy.jpg"
+                    alt="Adorable tiny Thumbelina on a flower adventure">
+                <div class="play-overlay">▶</div>
+                <h3>Thumbelina</h3>
+                <p>A tiny girl born from a flower embarks on the biggest adventure of her life! 🌷🧚</p>
+            </div>
+
+            <!-- Snow White (now with perfect-loading cute thumbnail!) -->
+            <div class="video-card" data-video="./Stories/Snow_White.mp4">
+                <img src="https://www.storyberries.com/wp-content/uploads/2019/01/Bedtime-stories-Snow-White-and-the-Seven-Dwarves-fairy-tales-for-kids.jpg"
+                    alt="Adorable Snow White with seven dwarfs in magical forest" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Snow White</h3>
+                <p>A kind princess, jealous queen, seven funny dwarfs, and a poisonous apple adventure! 🍎🏠</p>
+            </div>
+
+            <!-- The Secret Princess (your downloaded mystery tale!) -->
+            <div class="video-card" data-video="./Stories/The_Secret_Princess.mp4">
+                <img src="https://i.pinimg.com/1200x/63/4a/2c/634a2c6805c3b6c4f03c21c8168ba8ff.jpg"
+                    alt="Mysterious hidden princess discovering her royal secret with castle and crown">
+                <!-- Replace with actual YouTube thumbnail if known, or a cute secret princess cartoon! -->
+                <div class="play-overlay">▶</div>
+                <h3>The Secret Princess</h3>
+                <p>A hidden royal discovers her true destiny in a world of secrets and magic! 👑🔮</p>
+            </div>
+
+            <!-- Rapunzel (tower escape magic!) -->
+            <div class="video-card" data-video="./Stories/Rapunzel.mp4">
+                <img src="https://i.pinimg.com/1200x/ab/f1/04/abf104fea7e9f0725a3915093a402cda.jpg"
+                    alt="Cute Rapunzel with long golden hair in tall tower surrounded by flowers" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Rapunzel</h3>
+                <p>A brave princess with magical long hair trapped in a tower—until a prince climbs up for adventure!
+                    🏰💇‍♀️</p>
+            </div>
+            <!-- Add more cards here easily! -->
+        </div>
+    </section>
+
+    <!-- Single Reusable Video Modal -->
+    <div id="videoModal">
+        <div class="modal-content">
+            <span class="close-btn">✖</span>
+            <video id="storyVideo" controls autoplay playsinline preload="auto">
+                <source src="" type="video/mp4">
+                Your browser doesn't support video—time for a magical upgrade! 🪄
+            </video>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+    <!-- Bubbles (unchanged) -->
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <script src="Stories.js"> </script>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+
+</body>
+
+</html>

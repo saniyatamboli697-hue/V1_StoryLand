@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Superhero Stories</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="../Welcome_Page/Welcome_Page_CSS.css"> <!-- Your existing styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&family=Comic+Neue&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Sky-High Superhero Styles – brighter & more fun! */
+        .video-gallery {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to bottom, #87CEEB, #E0F7FF);
+            /* Sunny blue sky! */
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-gallery::before {
+            /* Subtle clouds */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://thumbs.dreamstime.com/b/comic-book-cityscape-background-vibrant-style-illustration-featuring-silhouetted-against-blue-radial-burst-white-cartoon-clouds-408348173.jpg') center/cover no-repeat;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .video-gallery h2 {
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2.8rem;
+            background: linear-gradient(45deg, #FFD700, #FF4500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .video-card {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.4s ease;
+            background: white;
+        }
+
+        .video-card:hover {
+            transform: translateY(-25px) scale(1.08);
+            z-index: 10;
+        }
+
+        .video-card::after {
+            /* Comic burst on hover */
+            content: '';
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(circle, transparent 60%, #FFD700 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .video-card:hover::after {
+            opacity: 0.4;
+            animation: burst 1s;
+        }
+
+        @keyframes burst {
+            0% {
+                transform: scale(0.8);
+            }
+
+            100% {
+                transform: scale(1.2);
+            }
+        }
+
+        .video-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 8px solid #007bff;
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 123, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7rem;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+            animation: flutter 1.5s infinite;
+        }
+
+        @keyframes flutter {
+
+            0%,
+            100% {
+                transform: rotate(-5deg);
+            }
+
+            50% {
+                transform: rotate(5deg);
+            }
+        }
+
+        /* Cape wave! */
+        .video-card h3 {
+            margin: 1.5rem 0 0.5rem;
+            font-family: 'Princess Sofia', cursive;
+            font-size: 2.2rem;
+            color: #007bff;
+        }
+
+        .video-card p {
+            padding: 0 1.5rem 2rem;
+            font-family: 'Comic Neue', sans-serif;
+            color: #333;
+        }
+
+        /* Sky Modal Glow */
+        #videoModal.active {
+            display: flex;
+        }
+
+        .modal-content video {
+            border: 10px solid #FFD700;
+            box-shadow: 0 0 80px rgba(255, 215, 0, 0.8);
+        }
+
+        .close-btn {
+            text-shadow: 0 0 20px #FFD700;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #FFD700;
+            }
+
+            to {
+                text-shadow: 0 0 30px #FF4500;
+            }
+        }
+
+        #videoModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        #videoModal.active {
+            display: flex;
+        }
+
+        /* This was missing the base—boom, fixed! */
+    </style>
+</head>
+
+<body>
+    <!-- Header/Navbar -->
+    <header class="navbar">
+        <div class="logo">StoryLand 🏰</div>
+        <nav>
+            <ul>
+
+                <ul>
+                    <li><a href="../Welcome_Page/Welcome_Page_Index.html">Home</a></li>
+                    <li><a href="../sing_along_rhymes_without_DB_Source/sing_along_rhymes.html">Rhymes</a></li>
+                    <li><a href="../Public_Stories/Public_Stories_Index.html">Stories</a></li>
+                    <li><a href="../Math_Page/Math_Page_Index.html">Math Fun</a></li>
+                    <li><a href="../Quiz_Folder/quiz-category.html">Quiz</a></li>
+                    <li><a href="../Your Creation/Your Creation.html">Your Creations</a></li>
+                    <li><a href="../Quiz_Folder/dashboard_Index.html">Dashboard</a></li>
+                </ul>
+        </nav>
+    </header>
+
+    <!-- Hero (sky update!) -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="bounce-in">Welcome to Superhero Stories!</h1>
+            <p class="fade-in">Soar through the skies, battle villains, and save the day with amazing powers! 🦸‍♀️🌤️
+            </p>
+            <button class="cta-btn rotate-hover">Launch into Action! 🚀</button>
+        </div>
+        <div class="floating-particles"></div>
+    </section>
+
+    <!-- Sky-High Gallery! -->
+    <section class="video-gallery">
+        <h2 class="bounce-in">Superheroes Take Flight! 🦸‍♂️🦸‍♀️</h2>
+        <div class="video-grid">
+
+
+            <!-- Super Ben the Superhero (young hero saves the day!) -->
+            <div class="video-card" data-video="./Stories/Super_Ben.mp4">
+                <img src="https://thumbs.dreamstime.com/b/energy-superhero-promoting-efficiency-better-life-energy-superhero-promoting-efficiency-better-life-artistic-346753062.jpg"
+                    alt="Brave young superhero boy flying with glowing powers and cape" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Super Ben the Superhero</h3>
+                <p>A ordinary kid discovers amazing powers and becomes a hero to protect everyone! ⚡🦸‍♂️</p>
+            </div>
+
+            <!-- A Helping Hulk (Spidey & Hulk team-up adventure!) -->
+            <div class="video-card" data-video="./Stories/A_Helping_Hulk.mp4">
+                <img src="https://bakersfieldnow.com/resources/media2/16x9/1799/986/1x0/90/fb7b60d2-4495-463d-9367-b5c4be1dbd2c-TeamUpSpecialFirstLook.JPEG"
+                    alt="Spidey and Hulk sneaking together with friendly grins and glowing powers" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>A Helping Hulk</h3>
+                <p>Spidey and Hulk team up with stealth and friendship to stop Doc Ock's sneaky plans! 🤝🕸️💚</p>
+            </div>
+            <!-- Rocket Girl (high-flying superhero adventure!) -->
+            <div class="video-card" data-video="./Stories/Rocket_Girl.mp4">
+
+                <img src="https://i.ytimg.com/vi/Ey2szY0koHw/hq720.jpg?sqp=-oaymwEXCK4FEIIDSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLCMzb_zyxYbu2xuzs5x5dGrN5_hpw"
+                    alt="Cute girl superhero blasting off with rocket jetpack and cape" class="thumbnail">
+                <div class="play-overlay">▶</div>
+                <h3>Rocket Girl</h3>
+                <p>A brave girl discovers rocket powers and zooms to save the world with speed and courage! 🚀💥</p>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- Single Reusable Modal -->
+    <div id="videoModal">
+        <div class="modal-content">
+            <span class="close-btn">✖️</span>
+            <video id="storyVideo" controls autoplay playsinline preload="auto">
+                <source src="" type="video/mp4">
+                Whoosh! Your browser needs adventure fuel to play videos 🏕️
+            </video>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 StoryLand. All rights reserved.</p>
+
+        <div class="footer-links">
+            <a href="#about" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/About-icon.png" alt="About">
+                About
+            </a>
+            <a href="#feedback" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/fd-icon.png" alt="Feedback">
+                Feedback
+            </a>
+            <a href="#ratings" class="float-up">
+                <img src="https://iacterraformst.blob.core.windows.net/storyteller2/Images/Rating-icon.png"
+                    alt="Ratings"> Ratings
+            </a>
+            <a href="#" class="float-up">
+                <p>Go to top</p>
+            </a>
+        </div>
+
+
+    </footer>
+
+    <div class="bubbles">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+
+    <script src="Stories.js"></script>
+    <script src="../Welcome_Page/Welcome_Page_JS.js"></script>
+</body>
+
+</html>
