@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="icon" href="https://iacterraformst.blob.core.windows.net/storyteller2/Images/favicon.jpg"
+        type="image/jpg">
+
+    <link rel="stylesheet" href="Registration_Page_CSS.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="reg-box">
+            <h1 class="st">StoryLand</h1>
+            <span class="princess-sofia-regular">Register </span>
+
+            <form id="regForm">
+
+                <input type="text" placeholder="Full Name" required class="input">
+                <input type="email" placeholder="Email" required class="input">
+                <!-- <input type="password" placeholder="Password" required class="input">
+                <input type="password" placeholder="Confirm Password" required class="input"> -->
+                <div class="password-field">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <i class="fa-solid fa-eye toggle-password" data-target="password"></i>
+                </div>
+
+                <div class="password-field">
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                    <i class="fa-solid fa-eye toggle-password" data-target="confirmPassword"></i>
+                </div>
+                <p id="password-strength"></p>
+
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+
+            <p class="login-link">Already have an account? <a href="../index.html">Login</a></p>
+            <p id="log-msg"></p>
+
+        </div>
+    </div>
+
+    <script src="Registration_Page_JS.js"></script>
+
+</body>
+
+</html>

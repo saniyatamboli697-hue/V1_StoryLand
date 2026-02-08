@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: url("https://iacterraformst.blob.core.windows.net/storyteller2/Images/kidos.jpg") no-repeat center center / cover;
+    min-height: 100vh;
+    /* Better than fixed height for mobile */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overlay blur effect */
+.container {
+    width: 100%;
+    min-height: 100vh;
+    /* Full height on all devices */
+    background: rgba(0, 0, 0, 0.486);
+    /* Fallback */
+    backdrop-filter: blur(6px);
+    /* Fixed typo: was 0.6px */
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    /* Extra padding on small screens */
+}
+
+.reg-box {
+    width: 90%;
+    /* Fluid on mobile */
+    max-width: 400px;
+    /* Slightly larger max for better spacing */
+    padding: 30px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, 0.292);
+    border: 2px solid rgba(0, 255, 180, 0.5);
+    box-shadow: 0 0 20px rgba(0, 255, 180, 0.7);
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.st {
+    color: #820bf2;
+    margin-bottom: 10px;
+    font-family: "Fleur De Leah", cursive;
+    font-size: 80px;
+    font-weight: 700;
+}
+
+.reg-box span {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: rgb(2 242 247 / 93%);
+}
+
+.princess-sofia-regular {
+    font-family: "Princess Sofia";
+    font-weight: 400;
+    font-style: normal;
+}
+
+.reg-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+.reg-box input::placeholder {
+    color: #dcdcdc;
+}
+
+input:focus {
+    border: 2px solid rgb(0, 225, 255);
+    /* Visible focus border */
+    box-shadow: 0 0 5px 3px cyan;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+    width: 100%;
+    padding: 14px;
+    /* Increased for touch */
+    color: #000;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 12px;
+    background: linear-gradient(to right, #1105ee, #0ef1a987);
+    box-shadow: 0 0 5px cyan, 0 4px 10px cyan;
+    cursor: pointer;
+    transition: transform 0.2s;
+    min-height: 48px;
+    /* Touch-friendly */
+}
+
+.btn:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+.login-link {
+    margin-top: 15px;
+}
+
+.login-link a {
+    color: #00ffbf;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0048cf;
+}
+
+.password-field {
+    position: relative;
+}
+
+.password-field input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #00ffbf;
+    font-size: 16px;
+}
+
+.toggle-password:hover {
+    color: #ffffff;
+}
+
+#password-strength {
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.weak {
+    color: red;
+}
+
+.medium {
+    color: orange;
+}
+
+.strong {
+    color: #31c36c;
+}
+
+.stronger {
+    color: #00ff00;
+}
+
+#log-msg {
+    margin-top: 15px;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    min-height: 20px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+#log-msg.show {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.login-success {
+    background-color: rgba(212, 237, 218, 0.8);
+    color: #ffffff;
+    font-weight: bold;
+    border: 1px solid #06ed3c;
+    box-shadow: 0 0 25px #d595fa, 0 0 50px rgba(224, 170, 255, 0.7);
+}
+
+.login-error {
+    background-color: rgba(248, 215, 218, 0.8);
+    color: #ff0000;
+    font-weight: bold;
+    border: 1px solid #ff011a;
+    box-shadow: 0 0 25px #cc83f6, 0 0 50px rgba(224, 170, 255, 0.7);
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE MEDIA QUERIES
+---------------------------------------------------- */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .reg-box {
+        padding: 25px;
+    }
+
+    .st {
+        font-size: 60px;
+        /* Smaller on tablets */
+    }
+
+    .reg-box span {
+        font-size: 24px;
+    }
+
+    .reg-box input,
+    .btn {
+        font-size: 16px;
+        /* Slightly larger for readability */
+        padding: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .st {
+        font-size: 50px;
+        /* Fits small phones */
+    }
+
+    .reg-box span {
+        font-size: 22px;
+    }
+
+    .reg-box {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .reg-box input,
+    .btn {
+        padding: 16px;
+        font-size: 16px;
+    }
+
+    #log-msg {
+        font-size: 13px;
+        padding: 12px;
+    }
+}
+
+/* ----------------------------------------------------
+   RESPONSIVE MEDIA QUERIES – Registration Page
+   Ensures beautiful, consistent, and touch-friendly design on all screens
+---------------------------------------------------- */
+
+/* Large Desktops (≥1200px) – Extra spacious & elegant */
+@media (min-width: 1200px) {
+    .container {
+        padding: 40px;
+    }
+
+    .reg-box {
+        max-width: 450px;
+        padding: 40px;
+    }
+
+    .st {
+        font-size: 90px;
+    }
+
+    .reg-box span {
+        font-size: 32px;
+    }
+
+    .reg-box input,
+    .btn {
+        padding: 16px;
+        font-size: 17px;
+    }
+}
+
+/* Desktops (≤1199px) */
+@media (max-width: 1199px) {
+    .reg-box {
+        max-width: 420px;
+        padding: 35px;
+    }
+
+    .st {
+        font-size: 80px;
+    }
+
+    .reg-box span {
+        font-size: 28px;
+    }
+}
+
+/* Tablets (≤992px) */
+@media (max-width: 992px) {
+    .container {
+        padding: 30px;
+    }
+
+    .reg-box {
+        max-width: 400px;
+        padding: 32px;
+    }
+
+    .st {
+        font-size: 70px;
+    }
+
+    .reg-box span {
+        font-size: 26px;
+    }
+
+    .reg-box input,
+    .btn {
+        padding: 14px;
+    }
+}
+
+/* Small Tablets & Landscape Phones (≤768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        backdrop-filter: blur(8px);
+        /* Slightly stronger blur for readability */
+    }
+
+    .reg-box {
+        width: 92%;
+        max-width: none;
+        padding: 28px;
+        border-radius: 16px;
+    }
+
+    .st {
+        font-size: 60px;
+    }
+
+    .reg-box span {
+        font-size: 24px;
+    }
+
+    .reg-box input,
+    .btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .toggle-password {
+        font-size: 18px;
+        right: 14px;
+    }
+
+    #password-strength {
+        font-size: 14px;
+    }
+
+    .login-link {
+        font-size: 15px;
+    }
+}
+
+/* Mobile Portrait (≤576px) */
+@media (max-width: 576px) {
+    .container {
+        padding: 15px;
+    }
+
+    .reg-box {
+        width: 96%;
+        padding: 25px;
+    }
+
+    .st {
+        font-size: 52px;
+    }
+
+    .reg-box span {
+        font-size: 22px;
+    }
+
+    .reg-box input,
+    .btn {
+        padding: 14px;
+        font-size: 15.5px;
+    }
+
+    .password-field input {
+        padding-right: 45px;
+    }
+
+    .toggle-password {
+        right: 12px;
+        font-size: 17px;
+    }
+
+    #log-msg {
+        font-size: 13.5px;
+        padding: 10px;
+    }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+    .reg-box {
+        padding: 22px;
+        border-radius: 14px;
+    }
+
+    .st {
+        font-size: 48px;
+    }
+
+    .reg-box span {
+        font-size: 21px;
+    }
+
+    .reg-box input,
+    .btn {
+        padding: 13px;
+    }
+
+    .btn {
+        min-height: 50px;
+    }
+}
+
+/* Very Small Phones (≤360px) */
+@media (max-width: 360px) {
+    .st {
+        font-size: 42px;
+    }
+
+    .reg-box span {
+        font-size: 20px;
+    }
+
+    .reg-box {
+        padding: 20px;
+    }
+
+    .reg-box input,
+    .btn {
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .login-link {
+        font-size: 14px;
+    }
+}
